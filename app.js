@@ -66,13 +66,14 @@ app.use( (req, res, next) => {
 //ROUTES
 const index = require('./routes/index');
 const auth = require('./routes/auth');
-const profile = require('./routes/profile');
 const maps = require('./routes/maps');
+const profile = require('./routes/profile');
+
 
 app.use('/', index);
-app.use('/profile', profile);
-app.use('/', auth);
+app.use('/auth', auth);
 app.use('/maps', maps);
+app.use('/profile', profile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,8 +4,7 @@ const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //ensure profile routes
-
-router.get('/account', ensureLoggedIn('/login'), (req, res) => {
+router.get('/account', ensureLoggedIn('/profile/account'), (req, res) => {
     res.render('profile/account', {
         user : req.user
     });

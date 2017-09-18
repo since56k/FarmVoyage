@@ -5,7 +5,7 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //signIn
 router.get('/login', ensureLoggedOut(), (req, res) => {
-    res.render('lauth/signin', { 
+    res.render('auth/signin', { 
     message: req.flash("error"),
 	});
 });

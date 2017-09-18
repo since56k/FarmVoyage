@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 const Place = require('../models/googleMapsInfo');
 
+
 //save place in db
 router.post('/', (req, res, next) => {
   // Get Params from POST
-  console.log("this works!");
   let location = {
     type: 'Point',
     coordinates: [req.body.longitude, req.body.latitude]
@@ -21,12 +21,11 @@ router.post('/', (req, res, next) => {
 
   const place = new Place(newPlace);
 
-  // Save the restaurant to the Database
+  // Save the place to the Database
   place.save((error) => {
     if (error) { console.log(error) }
     else {
       res.redirect('/');
-
     }
   })
 });
