@@ -15,6 +15,8 @@ const configPassport = require('./middleware/passport');
 
 //MODELS
 const User = require('./models/user');
+const GoogleMapsInfo = require('./models/googleMapsInfo');
+const SavedFarmInfo = require('./models/savedFarmInfo');
 
 //MONGOOSE CONNECTION
 mongoose.connect('mongodb://localhost:27017/farm-voyage-development');
@@ -41,29 +43,36 @@ configPassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//PASSPORT
+app.use(flash());
+
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//PASSPORT
-app.use(flash());
+app.use( (req, res, next) => {
+  if (typeof(req.user) !== "undefined"){
+    res.locals.userSignedIn = true;
+  } else {
+    res.locals.userSignedIn = false;
+  }
+  next();
+});
 
 //ROUTES
 const index = require('./routes/index');
-// const auth = require('./routes/auth');
-// const profile = require('./routes/profile');
-// const users = require('./routes/users');
+const auth = require('./routes/auth');
+const profile = require('./routes/profile');
+const maps = require('./routes/maps');
 
 app.use('/', index);
-// app.use('/', auth);
-// app.use('/profile', profile);
-// app.use('/users', users);
-
+app.use('/profile', profile);
+app.use('/', auth);
+app.use('/maps', maps);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

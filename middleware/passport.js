@@ -2,8 +2,8 @@
 
 // load all the things we need
 const LocalStrategy = require('passport-local').Strategy;
-const FbStrategy = require('passport-facebook').Strategy;
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+//const FbStrategy = require('passport-facebook').Strategy;
+//const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 const passport = require("passport");
 
@@ -82,61 +82,61 @@ module.exports = (passport) => {
         });
     }));
 
-    //FACEBOOK STRATEGY
-    passport.use(new FbStrategy({
-      clientID: "857307061101319",
-      clientSecret: "6a3eace08f83082fe80681f9078c0105",
-      callbackURL: "/auth/facebook/callback"
-    }, (accessToken, refreshToken, profile, done) => {
-      User.findOne({ facebookID: profile.id }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
-        if (user) {
-          return done(null, user);
-        }
+    // //FACEBOOK STRATEGY
+    // passport.use(new FbStrategy({
+    //   clientID: "857307061101319",
+    //   clientSecret: "6a3eace08f83082fe80681f9078c0105",
+    //   callbackURL: "/auth/facebook/callback"
+    // }, (accessToken, refreshToken, profile, done) => {
+    //   User.findOne({ facebookID: profile.id }, (err, user) => {
+    //     if (err) {
+    //       return done(err);
+    //     }
+    //     if (user) {
+    //       return done(null, user);
+    //     }
 
-        const newUser = new User({
-          facebookID: profile.id
-        });
+    //     const newUser = new User({
+    //       facebookID: profile.id
+    //     });
 
-        newUser.save((err) => {
-          if (err) {
-            return done(err);
-          }
-          done(null, newUser);
-        });
-      });
+    //     newUser.save((err) => {
+    //       if (err) {
+    //         return done(err);
+    //       }
+    //       done(null, newUser);
+    //     });
+    //   });
 
-    }));
+    // }));
 
 
-    //GOOGLE STRATEGY
-    passport.use(new GoogleStrategy({
-      clientID: "881861196583-d8gjkkped1kgukjsg9cb6eedqja3k8c0.apps.googleusercontent.com",
-      clientSecret: "JwlD-62nOiJLnODXHrWR6ftV",
-      callbackURL: "/auth/google/callback"
-    }, (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleID: profile.id }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
-        if (user) {
-          return done(null, user);
-        }
+    // //GOOGLE STRATEGY
+    // passport.use(new GoogleStrategy({
+    //   clientID: "881861196583-d8gjkkped1kgukjsg9cb6eedqja3k8c0.apps.googleusercontent.com",
+    //   clientSecret: "JwlD-62nOiJLnODXHrWR6ftV",
+    //   callbackURL: "/auth/google/callback"
+    // }, (accessToken, refreshToken, profile, done) => {
+    //   User.findOne({ googleID: profile.id }, (err, user) => {
+    //     if (err) {
+    //       return done(err);
+    //     }
+    //     if (user) {
+    //       return done(null, user);
+    //     }
 
-        const newUser = new User({
-          googleID: profile.id
-        });
+    //     const newUser = new User({
+    //       googleID: profile.id
+    //     });
 
-        newUser.save((err) => {
-          if (err) {
-            return done(err);
-          }
-          done(null, newUser);
-        });
-      });
+    //     newUser.save((err) => {
+    //       if (err) {
+    //         return done(err);
+    //       }
+    //       done(null, newUser);
+    //     });
+    //   });
 
-    }));
+    // }));
 
 };
