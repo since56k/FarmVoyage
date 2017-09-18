@@ -11,7 +11,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
-const configPassport = require('./middleware/passport');
+const configPassport = require('./config/passport');
 
 //MODELS
 const User = require('./models/user');

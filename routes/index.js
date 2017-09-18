@@ -1,5 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const express    = require('express');
+const passport   = require('passport');
+const router     = express.Router();
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //from index to ->
 
@@ -23,9 +25,12 @@ router.get('/profile/account', function(req, res, next) {
   res.render('profile/account', { title: 'Profile Account' });
 });
 
-//Go to profile/farm 
-router.get('/profile/farm', function(req, res, next) {
-  res.render('profile/farm', { title: 'Profile Farm,' });
+//private route
+router.get('/profile/farm', ensureLoggedIn('/login'), (req, res) => {
+    res.render('profile/farm', {
+    	title : 'Profile farm',
+        user : req.user
+    });
 });
 
 //Go to profile/route 
@@ -34,12 +39,12 @@ router.get('/profile/route', function(req, res, next) {
 });
 
 //Go to profile/route 
-router.get('/auth/login', function(req, res, next) {
+router.get('/login', function(req, res, next) {
   res.render('auth/signin', { title: 'auth LogIn' });
 });
 
 //Go to auth/route 
-router.get('/auth/signup', function(req, res, next) {
+router.get('/signup', function(req, res, next) {
   res.render('auth/signup', { title: 'auth SignUp' });
 });
 

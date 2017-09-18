@@ -1,7 +1,28 @@
-var express = require('express');
-var router = express.Router();
+const express    = require('express');
+const passport   = require('passport');
+const router     = express.Router();
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const Place = require('../models/googleMapsInfo');
 
+//from maps to ->
+
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Index maps' });
+});
+
+//farm
+router.get('profile/farm', ensureLoggedIn('/login'), (req, res) => {
+    res.render('profile/farm', {
+        user : req.user
+    });
+});
+
+//route
+router.get('profile/route', ensureLoggedIn('/login'), (req, res) => {
+    res.render('profile/route', {
+        user : req.user
+    });
+});
 
 //save place in db
 router.post('/', (req, res, next) => {
