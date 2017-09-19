@@ -32,8 +32,6 @@ $bold-font: 600;
 	}
 }
 
-
-
 .home {
 	text-align: center;
 	margin: 0 auto;
@@ -282,6 +280,11 @@ $bold-font: 600;
 	color: $main-text-color;
 	.profile-content {
 		margin-top: 5vh;
+	}
+	.profile-headers {
+		h2 {
+		@include responsive-font-size (.45em, 2em, 320px, 1200px, 0.5em);
+	}
 	}
 	div {
 		margin: 0 auto;
