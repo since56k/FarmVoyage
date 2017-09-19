@@ -25,14 +25,18 @@
 
           <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-              <% if (!userSignedIn) { %>
-              <li><a href="/signup">sign up</a></li>
-              <li><a href="/login">log in</a></li>
-              <% } else {%>
-              <form action="/logout" method="POST">
-                   <li><button>Logout</button></li>
-              </form>
-              <% } %>
+								<% if (userSignedIn) { %>
+									<li><a href="/profile/account"><%= username %></a></li>
+								<%} else { %>
+									<li><a href="/signup">sign up</a></li>
+								<% } %>
+
+								<% if (userSignedIn) { %>
+									<form action="/logout" method="POST"></form>
+										<li><button>logout</button></li>
+								<%} else { %>
+									<li><a href="/login">log in</a></li>
+								<% } %>
               </ul>
           </div><!--.nav-collapse -->
       </div>
