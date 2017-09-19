@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const Place = require('../models/googleMapsInfo');
+const passport   = require('passport');
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+
+//get home page
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Farm Voyage' });
+});
 
 //save place in db
 router.post('/', (req, res, next) => {

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const passport   = require('passport');
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //get home page
 router.get('/', function(req, res, next) {
@@ -12,5 +14,13 @@ router.get('/main', (req, res) => {
     message: req.flash("error"),
 	});
 });
+
+//logout
+router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
+    req.logout();
+    res.redirect('/');
+});
+
+
 
 module.exports = router;

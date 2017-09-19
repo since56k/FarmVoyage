@@ -29,11 +29,6 @@ router.get('/route', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
-//logout
-router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
 
 
 
