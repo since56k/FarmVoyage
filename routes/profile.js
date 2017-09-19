@@ -5,6 +5,12 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //ensure profile routes
 
+// router.get('/profile', ensureLoggedIn('/login'), (req, res) => {
+//     res.render('profile/account', {
+//         user : req.user
+//     });
+// });
+
 router.get('/account', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/account', {
         user : req.user
@@ -21,6 +27,12 @@ router.get('/route', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/route', {
         user : req.user
     });
+});
+
+//logout
+router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
+    req.logout();
+    res.redirect('/');
 });
 
 

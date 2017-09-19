@@ -9,7 +9,6 @@ const passport = require("passport");
 
 const bcrypt = require('bcrypt');
 const bcryptSalt     = 10;
-
 const User = require("../models/user");
 
 // load up the user model

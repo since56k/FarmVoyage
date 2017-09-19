@@ -6,9 +6,9 @@ const UserSchema = new Schema({
   email   : String,
   password: String,
   username: String,
-  description: String,
-  picPath: String,
-  picName: String
+  description: String
+}, {
+  timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
 
 UserSchema.methods.generateHash = function(password) {
