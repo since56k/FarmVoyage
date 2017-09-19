@@ -1,10 +1,14 @@
 <div class="login">
 	<h1>LOG IN</h1>
-	<form action="">
+	<form action="/login" method="POST">
 		<input type="text" name="username" placeholder="username">
 		<input type="password" name="password" placeholder="password">
 	</form>
-	<a href="/search"><button>Log in</button></a>
+	<a href="/main"><button>Log in</button></a>
 	<a href="#"><button class="fb"><i class="fa fa-facebook fa-lg"></i> Log in with Facebook</button></a>
 	<a href="#"><button class="google"><i class="fa fa-google-plus fa-lg"></i> Log in with Google</button></a>
 </div>
+
+<% if (typeof(errorMessage) !== "undefined") { %>
+  <div class="error-message"><%= errorMessage %></div>
+<% } %>
