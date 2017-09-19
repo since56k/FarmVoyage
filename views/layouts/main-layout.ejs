@@ -20,7 +20,11 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
+              <% if (userSignedIn) { %>
+              <a class="navbar-brand" href="/main">Farm Voyage</a>
+              <%} else { %>
               <a class="navbar-brand" href="/">Farm Voyage</a>
+              <% } %>
           </div>
 
           <div class="collapse navbar-collapse">
@@ -32,8 +36,8 @@
 								<% } %>
 								<% if (userSignedIn) { %>
 									<form action="/logout" method="POST">
-										<li><button id="logout">logout</button></li></form>
-									</form>
+										<li><button>logout</button></li>
+                  </form>
 								<%} else { %>
 										<li><a href="/login">log in</a></li>
 								<% } %>
