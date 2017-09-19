@@ -32,7 +32,8 @@
 								<% } %>
 
 								<% if (userSignedIn) { %>
-									<li><a href="/">logout</a></li>
+									<form action="/logout" method="POST"></form>
+										<li><button>logout</button></li>
 								<%} else { %>
 									<li><a href="/login">log in</a></li>
 								<% } %>
