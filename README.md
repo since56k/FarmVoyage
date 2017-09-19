@@ -2,8 +2,8 @@
 Find local farms, vineyards, ecolodges before you plan your next roadtrip
 
 ## Team
-Gabriele 
-Philip Wisner [Github](https://github.com/philipwisner)
+* Gabriele 
+* Philip Wisner [Github](https://github.com/philipwisner)
 
 <div style="text-align:center"><img src ="http://www.madeinsouthitalytoday.com/assets/uploads/Agriturismo/Agriturismo_785.jpg" /></div>
 
