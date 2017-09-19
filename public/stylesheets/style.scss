@@ -13,6 +13,10 @@ $bold-font: 600;
 	box-sizing: border-box;
 }
 
+#disabled {
+	background-color: $primary-color * .6;
+}
+
 #map {
 	width: auto;
 	margin: 0;
@@ -266,7 +270,14 @@ $bold-font: 600;
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
-		margin-top: 30vh;
+		margin-top: 28vh;
+		margin-bottom: 2vh;
+		display: block;
+	}
+	#signin-route {
+		border: none;
+		margin: 0 auto;
+		margin-top: 28vh;
 		margin-bottom: 2vh;
 		display: block;
 	}
@@ -278,6 +289,12 @@ $bold-font: 600;
 		padding: 5px 20px;
 		text-transform: uppercase;
 		font-weight: $bold-font;
+		a {
+			color: white;
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	.radius {
 		max-width: 70px;
