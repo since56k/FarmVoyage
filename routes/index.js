@@ -8,8 +8,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Farm Voyage' });
 });
 
+
 //home to main search
-router.get('/main', ensureLoggedIn('/login'), (req, res) => {
+router.get('/main', (req, res) => {
     res.render('main', {
     message: req.flash("error"),
     user : req.user
