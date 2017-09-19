@@ -6,13 +6,12 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //get home page
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Farm Voyage' });
+  res.render('index', { title: 'Farm Voyage' }, {user : req.user});
 });
 
 //save place in db
 router.post('/', (req, res, next) => {
   // Get Params from POST
-  console.log("this works!");
   let location = {
     type: 'Point',
     coordinates: [req.body.longitude, req.body.latitude]
@@ -33,7 +32,6 @@ router.post('/', (req, res, next) => {
     if (error) { console.log(error) }
     else {
       res.redirect('/');
-
     }
   })
 });

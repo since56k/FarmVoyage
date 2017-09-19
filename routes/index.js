@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
 });
 
 //home to main search
-router.get('/main', (req, res) => {
+router.get('/main', ensureLoggedIn('/login'), (req, res) => {
     res.render('main', {
     message: req.flash("error"),
+    user : req.user
 	});
 });
 
