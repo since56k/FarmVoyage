@@ -8,6 +8,7 @@ router.get('/', ensureLoggedOut('/main'), function(req, res, next) {
   res.render('index', { title: 'Farm Voyage' });
 });
 
+
 //home to main search
 router.get('/main', (req, res) => {
     res.render('main', {

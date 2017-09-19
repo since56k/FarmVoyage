@@ -5,13 +5,13 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //index
 router.get('/', ensureLoggedIn('/login'), (req, res) => {
-    res.render('profile/account', {
+    res.render('profile/route', {
         user : req.user
     });
 });
 
-router.get('/account', ensureLoggedIn('/login'), (req, res, next) => {
-    res.render('profile/account', {
+router.get('/route', ensureLoggedIn('/login'), (req, res) => {
+    res.render('profile/route', {
         user : req.user
     });
 });
@@ -22,11 +22,12 @@ router.get('/farm', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
-router.get('/route', ensureLoggedIn('/login'), (req, res) => {
-    res.render('profile/route', {
+router.get('/account', ensureLoggedIn('/login'), (req, res) => {
+    res.render('profile/account', {
         user : req.user
     });
 });
+
 
 router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
     req.logout();

@@ -3,6 +3,13 @@ const router     = express.Router();
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
+//maybe??
+// router.get('/', ensureLoggedIn('/login'), (req, res) => {
+//     res.render('main', {
+//         user : req.user
+//     });
+// });
+
 //signIn
 router.get('/login', ensureLoggedOut(), (req, res) => {
     res.render('auth/login', {
@@ -28,6 +35,8 @@ router.post('/signup', ensureLoggedOut(), passport.authenticate('local-signup', 
   failureFlash: true,
   passReqToCallback: true
 }));
+
+
 
 //logout
 // router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
