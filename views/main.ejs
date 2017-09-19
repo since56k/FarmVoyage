@@ -1,1 +1,39 @@
-<h1>SEARCH</h1>
+<div class="container-fluid main">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 main-content">
+      <form action="" class="search-filters">
+      <select class="form-control" id="country">
+          <option value="" disabled selected hidden>country</option>
+          <option>Italy</option>
+          <option>Spain</option>
+          <option>France</option>
+        </select>
+        <input type="text" name="starting" placeholder="starting point" class="form-control">
+        <input type="text" name="destination" placeholder="destination" class="form-control">
+        <input type="number" name="search-radius" placeholder="search radius" class="form-control">
+        <select class="form-control" id="type">
+          <option value="" disabled selected hidden>type</option>
+          <option>Sample 1</option>
+          <option>Sample 2</option>
+          <option>Sample 3</option>
+        </select>
+        <select class="form-control" id="keyword">
+          <option value="" disabled selected hidden>keyword</option>
+          <option>Sample 1</option>
+          <option>Sample 2</option>
+          <option>Sample 3</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+      <div class="save-route">
+        <form action="">
+          <input type="text" name="name" placeholder="route name" id="route-name">
+          <button type="submit">Save Route</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 main-content">
+      <h1>GOOGLE MAP</h1>
+    </div>
+  </div>
+</div>
