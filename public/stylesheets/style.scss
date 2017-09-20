@@ -58,16 +58,6 @@ $bold-font: 600;
 	height: 93vh;
 }
 
-#disabled {
-	background-color: $primary-color * .6;
-}
-
-#map {
-	width: auto;
-	margin: 0;
-	height: 93vh;
-}
-
 .navbar {
  -webkit-box-shadow: 0 8px 6px -6px #999;
  -moz-box-shadow: 0 8px 6px -6px #999;
@@ -85,13 +75,8 @@ $bold-font: 600;
 	}
 	a {
 		color: $primary-color;
-<<<<<<< HEAD
-	}
-
-=======
 		@include responsive-font-size (1.4em, 1.5em, 640px, 1200px, 0.5em);
 	}
->>>>>>> f426e04ef5869735dabaf0937c0cd01c6ad9af4e
 }
 
 .home {
@@ -136,13 +121,13 @@ $bold-font: 600;
 			@include responsive-font-size (1em, 1.5em, 640px, 1200px, 0.5em);
 			color: white;
 			border: none;
-			padding: 10px 40px;
+			padding: 10px 40px 2px 40px;
 			text-transform: uppercase;
 			font-weight: $bold-font;
 			border-radius: 100px;
 			display: block;
 			margin: 0 auto;
-			margin-top: 10vh;
+			margin-top: 8vh;
 			margin-bottom: 20vh;
 			}
 	}
@@ -192,7 +177,7 @@ $bold-font: 600;
 		display: block;
 		color: white;
 		border: none;
-		padding: 15px 40px;
+		padding: 15px 40px 10px 40px;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
@@ -206,7 +191,7 @@ $bold-font: 600;
 		background-color: #3b5998;
 		color: white;
 		border: none;
-		padding: 15px 30px;
+		padding: 15px 30px 10px 30px;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
@@ -222,7 +207,7 @@ $bold-font: 600;
 		background-color: #dd4b39;
 		color: white;
 		border: none;
-		padding: 15px 30px;
+		padding: 15px 30px 10px 30px;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
@@ -326,10 +311,6 @@ $bold-font: 600;
 		.search-filters {
 			margin-top: 5vh;
 			input, select {
-<<<<<<< HEAD
-				// display: block;
-=======
->>>>>>> f426e04ef5869735dabaf0937c0cd01c6ad9af4e
 				text-align: center;
 				margin: 0 auto;
 				margin-bottom: 20px;
@@ -344,11 +325,7 @@ $bold-font: 600;
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
-<<<<<<< HEAD
-		margin-top: 28vh;
-=======
 		margin-top: 20vh;
->>>>>>> f426e04ef5869735dabaf0937c0cd01c6ad9af4e
 		margin-bottom: 2vh;
 		display: block;
 	}
