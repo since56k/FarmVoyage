@@ -39,86 +39,78 @@ function initialize() {
         center: countries['it'].center,
         zoomControl: true,
         streetViewControl: false,
-        styles: [
-            { elementType: 'geometry', stylers: [{ color: '#9cc871' }] },
-            { elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
-            { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
-            {
-                featureType: 'administrative.locality',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#d59563' }]
-            },
-            {
-                featureType: 'poi',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#d59563' }]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'geometry',
-                stylers: [{ color: '#263c3f' }]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#6b9a76' }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{ color: '#38414e' }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry.stroke',
-                stylers: [{ color: '#9cc871' }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#9cc871' }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry',
-                stylers: [{ color: '#746855' }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{ color: '#1f2835' }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#f3d19c' }]
-            },
-            {
-                featureType: 'transit',
-                elementType: 'geometry',
-                stylers: [{ color: '#9cc871' }]
-            },
-            {
-                featureType: 'transit.station',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#d59563' }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{ color: '#17263c' }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.fill',
-                stylers: [{ color: '#515c6d' }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.stroke',
-                stylers: [{ color: '#17263c' }]
-            }
-        ]
+        styles: [{
+      "featureType": "administrative",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "on"
+      }, {
+        "saturation": -100
+      }, {
+        "lightness": 20
+      }]
+    }, {
+      "featureType": "road",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "on"
+      }, {
+        "saturation": -100
+      }, {
+        "lightness": 40
+      }]
+    }, {
+      "featureType": "water",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "on"
+      }, {
+        "saturation": -10
+      }, {
+        "lightness": 30
+      }]
+    }, {
+      "featureType": "landscape.man_made",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "simplified"
+      }, {
+        "saturation": -60
+      }, {
+        "lightness": 10
+      }]
+    }, {
+      "featureType": "landscape.natural",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "simplified"
+      }, {
+        "saturation": 10
+      }, {
+        "lightness": 20
+      }]
+    }, {
+      "featureType": "poi",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "off"
+      }, {
+        "saturation": -100
+      }, {
+        "lightness": 60
+      }]
+    }, {
+      "featureType": "transit",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "off"
+      }, {
+        "saturation": -100
+      }, {
+        "lightness": 60
+      }]
+    }]
+
 
     };
 
@@ -366,24 +358,7 @@ function createMarker(place) {
         var image = new google.maps.MarkerImage(
             place.icon, new google.maps.Size(71, 71),
             new google.maps.Point(0, 0), new google.maps.Point(17, 34),
-            new google.if (navigator.geolocation) {
-
-    navigator.geolocation.getCurrentPosition(function (position) {
-
-      center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      map.setCenter(center);
-      getRestaurant();
-    }, function () {
-      console.log('Error in the geolocation service.');
-    });
-  } else {
-    console.log('Browser does not support geolocation.');
-  }
-maps.Size(25, 25));
+            new google.maps.Size(25, 25));
     } else var image = {
         url: "https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle.png",
         size: new google.maps.Size(7, 7),
@@ -437,7 +412,7 @@ maps.Size(25, 25));
         <form action="/" method="post">
               <label>Lat</label>
               <input type="text" id="latitude" name="latitude" value="${lat}">
-
+      
               <label>Lng</label>
               <input type="text" id="longitude" name="longitude" value="${lng}">
 

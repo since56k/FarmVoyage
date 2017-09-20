@@ -1,48 +1,54 @@
 <div class="container-fluid main">
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 main-content collapse-in" id="search-menu">
-        <form action="" class="search-filters">
+        <div class="search-filters">
         <select class="form-control" id="country">
-            <option value="" disabled selected hidden>country</option>
-            <option id="italy-select" value="italy">Italy</option>
-            <option id="spain-select" value="spain">Spain</option>
-            <option id="france-select" value="france">France</option>
+            <option disabled selected hidden value="all">country</option>
+            <option id="italy-select" value="it">Italy</option>
+            <option id="spain-select" value="es">Spain</option>
+            <option id="france-select" value="fr">France</option>
           </select>
-          <input type="text" name="starting" placeholder="starting point" class="form-control">
-          <input type="text" name="destination" placeholder="destination" class="form-control">
-          <input type="number" name="search-radius" class="form-control radius"><span>km from route</span>
+          <input type="text" name="starting" id="starting" placeholder="starting point" class="form-control">
+          <input type="text" name="destination" id="destination" placeholder="destination" class="form-control">
+          <input type="number" name="search-radius" id="distance" min="1" value="1" class="form-control radius"><span>km from route</span>
           <select class="form-control" id="type">
             <option value="" disabled selected hidden>type</option>
-            <option class="italy-op">Sample 1 IT</option>
-            <option class="italy-op">Sample 2 IT</option>
-            <option class="italy-op">Sample 3 IT</option>
-            <option class="spain-op">Sample 1 ES</option>
-            <option class="spain-op">Sample 2 ES</option>
-            <option class="spain-op">Sample 3 ES</option>
-            <option class="france-op">Sample 1 FR</option>
-            <option class="france-op">Sample 2 FR</option>
-            <option class="france-op">Sample 3 FR</option>
+            <option class="italy-op"  value="food">Food IT</option>
+            <option class="italy-op"  value="point_of_interest">Point of Interest IT</option>
+            <option class="italy-op"  value="lodging">Lodging 3 IT</option>
+            <option class="spain-op"  value="">Sample 1 ES</option>
+            <option class="spain-op"  value="">Sample 2 ES</option>
+            <option class="spain-op"  value="">Sample 3 ES</option>
+            <option class="france-op" value="">Sample 1 FR</option>
+            <option class="france-op" value="">Sample 2 FR</option>
+            <option class="france-op" value="">Sample 3 FR</option>
           </select>
           <select class="form-control" id="keyword">
             <option value="" disabled selected hidden>keyword</option>
-            <option class="italy-op">Sample 1 IT</option>
-            <option class="italy-op">Sample 2 IT</option>
-            <option class="italy-op">Sample 3 IT</option>
-            <option class="spain-op">Sample 1 ES</option>
-            <option class="spain-op">Sample 2 ES</option>
-            <option class="spain-op">Sample 3 ES</option>
-            <option class="france-op">Sample 1 FR</option>
-            <option class="france-op">Sample 2 FR</option>
-            <option class="france-op">Sample 3 FR</option>
+            <option class="italy-op" value="agriturismo">Agriturismo 1 IT</option>
+            <option class="italy-op" value="fattoria">Fattoria 2 IT</option>
+            <option class="italy-op" value="azienda vinicola">Azi Vinicola IT</option>
+            <option class="spain-op" value="">Sample 1 ES</option>
+            <option class="spain-op" value="">Sample 2 ES</option>
+            <option class="spain-op" value="">Sample 3 ES</option>
+            <option class="france-op" value="">Sample 1 FR</option>
+            <option class="france-op" value="">Sample 2 FR</option>
+            <option class="france-op" value="">Sample 3 FR</option>
           </select>
-          <button type="submit">Search</button>
-        </form>
+          <select class="form-control" id="name">
+            <option value="" disabled selected hidden>name</option>
+            <option class="italy-op" value="olio">Olio 1 IT</option>
+            <option class="italy-op" value="vino">Vino 2 IT</option>
+            <option class="italy-op" value="miele">Miele IT</option>
+          </select>
+          <button id="get_route" type="submit">Search</button>
+        </div>
 
         <% if (userSignedIn) { %>
         <div class="save-route">
           <form action="">
             <input type="text" name="name" placeholder="route name" id="route-name">
-            <button type="submit">Save Route</button>
+            <button id="save_route" type="submit">Save Route</button>
           </form>
         <% } else { %>
           <div class="save-route">

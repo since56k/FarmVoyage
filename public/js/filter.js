@@ -1,10 +1,10 @@
 $(document).ready(function() {
   $('#country').on('change', function() {
     $('.france-op, .italy-op, .spain-op').removeClass('hidden');
-    if ($(this).val() == "italy") {
+    if ($(this).val() == "it") {
       $('.spain-op, .france-op').addClass('hidden');
    }
-    else if ($(this).val() == "spain") {
+    else if ($(this).val() == "es") {
       $('.italy-op, .france-op').addClass('hidden');
     }
     else {
