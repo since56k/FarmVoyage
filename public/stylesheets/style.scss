@@ -93,12 +93,9 @@ $bold-font: 600;
 		color: $main-text-color;
 		max-width: 800px;
 		margin: 0 auto;
+		padding: 0 20px;
 		}
-	.logins {	.logo {
-		max-height: 25vh;
-		margin-top: 15vh;
-		margin-bottom: 3vh;
-	}
+	.logins {
 		span {
 			padding: 20px;
 			@include responsive-font-size (.5em, 1.7em, 640px, 1200px, 0.5em);
@@ -141,7 +138,11 @@ $bold-font: 600;
 .signup {
 	text-align: center;
 	margin: 0 auto;
-	margin-top: 15vh;
+	margin-top: 4vh;
+	.logo {
+		max-height: 12vh;
+		margin-top: 3vh;
+	}
 	.input {
 		margin: 0 auto;
 		max-width: 600px;
@@ -154,8 +155,8 @@ $bold-font: 600;
 	}
 	h1 {
 		@include responsive-font-size (3em, 6em, 640px, 1200px, 0.5em);
-		margin-top: 10vh;
-		margin-bottom: 8vh;
+		margin-top: 14vh;
+		margin-bottom: 5vh;
 		color: $primary-color;
 	}
 	form {
@@ -195,7 +196,7 @@ $bold-font: 600;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
-		margin-top: 10vh;
+		margin-top: 3vh;
 		&:hover {
 			background-color: #3b5998 * .8;
 		}
@@ -224,16 +225,19 @@ $bold-font: 600;
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 15vh;
+	.logo {
+		max-height: 12vh;
+		margin-top: 3vh;
+	}
 	a {
-
 	}
 	& :hover {
 		text-decoration: none;
 	}
 	h1 {
 		@include responsive-font-size (3em, 6em, 640px, 1200px, 0.5em);
-		margin-top: 10vh;
-		margin-bottom: 8vh;
+		margin-top: 14vh;
+		margin-bottom: 5vh;
 		color: $primary-color;
 	}
 	form {
@@ -255,7 +259,7 @@ $bold-font: 600;
 		display: block;
 		color: white;
 		border: none;
-		padding: 15px 40px;
+		padding: 15px 40px 10px 40px;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
@@ -267,11 +271,11 @@ $bold-font: 600;
 		background-color: #3b5998;
 		color: white;
 		border: none;
-		padding: 15px 30px;
+		padding: 15px 30px 10px 30px;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
-		margin-top: 10vh;
+		margin-top: 3vh;
 		&:hover {
 			background-color: #3b5998 * .8;
 		}
@@ -283,7 +287,7 @@ $bold-font: 600;
 		background-color: #dd4b39;
 		color: white;
 		border: none;
-		padding: 15px 30px;
+		padding: 15px 30px 10px 30px;
 		border-radius: 100px;
 		font-weight: $bold-font;
 		text-transform: uppercase;
@@ -312,10 +316,12 @@ $bold-font: 600;
 			margin-top: 5vh;
 			input, select {
 				text-align: center;
+				@include responsive-font-size (1em, 1.3em, 640px, 1200px, 0.5em);
 				margin: 0 auto;
 				margin-bottom: 20px;
 				text-align: left;
 				color: $main-text-color;
+				border-radius: 5px; 
 			}
 	}
 	#search-collapse {
@@ -325,25 +331,28 @@ $bold-font: 600;
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
-		margin-top: 20vh;
+		margin-top: 18vh;
 		margin-bottom: 2vh;
 		display: block;
 	}
 	#signin-route {
+		@include responsive-font-size (1em, 1.5em, 640px, 1200px, 0.5em);
 		border: none;
 		margin: 0 auto;
-		margin-top: 28vh;
+		margin-top: 23vh;
 		margin-bottom: 2vh;
 		display: block;
 	}
 	button {
 		background-color: $primary-color;
+		@include responsive-font-size (.9em, 1.4em, 640px, 1200px, 0.5em);
 		color: white;
 		border: none;
 		border-radius: none;
-		padding: 5px 20px;
+		padding: 5px 20px 2px 20px;
 		text-transform: uppercase;
 		font-weight: $bold-font;
+		border-radius: 100px;
 		a {
 			color: white;
 			&:hover {
