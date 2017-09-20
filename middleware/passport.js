@@ -86,7 +86,8 @@ module.exports = (passport) => {
     passport.use(new FbStrategy({
       clientID: "857307061101319",
       clientSecret: "6a3eace08f83082fe80681f9078c0105",
-      callbackURL: "/auth/facebook/callback"
+      callbackURL: "/auth/facebook/callback",
+      profileFields: ['id', 'displayName', 'email']
     }, (accessToken, refreshToken, profile, done) => {
       User.findOne({ facebookID: profile.id }, (err, user) => {
         if (err) {
@@ -98,8 +99,9 @@ module.exports = (passport) => {
 
         const newUser = new User({
           facebookID: profile.id,
+          username: profile.displayName,
+          email: profile.emails[0].value
         });
-
         newUser.save((err) => {
           if (err) {
             return done(err);
@@ -126,7 +128,8 @@ module.exports = (passport) => {
 
         const newUser = new User({
           googleID: profile.id,
-          username: profile.name.givenName + " " + profile.name.familyName
+          username: profile.name.givenName + " " + profile.name.familyName,
+          email: profile.emails[0].value
         });
 
         newUser.save((err) => {
