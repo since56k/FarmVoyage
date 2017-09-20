@@ -47,9 +47,4 @@ router.get('/api/locations', function(req, res, next) {
   })
 });
 
-router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
-
 module.exports = router;

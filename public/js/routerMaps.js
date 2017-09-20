@@ -366,7 +366,24 @@ function createMarker(place) {
         var image = new google.maps.MarkerImage(
             place.icon, new google.maps.Size(71, 71),
             new google.maps.Point(0, 0), new google.maps.Point(17, 34),
-            new google.maps.Size(25, 25));
+            new google.if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+
+      center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      map.setCenter(center);
+      getRestaurant();
+    }, function () {
+      console.log('Error in the geolocation service.');
+    });
+  } else {
+    console.log('Browser does not support geolocation.');
+  }
+maps.Size(25, 25));
     } else var image = {
         url: "https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle.png",
         size: new google.maps.Size(7, 7),
@@ -420,7 +437,7 @@ function createMarker(place) {
         <form action="/" method="post">
               <label>Lat</label>
               <input type="text" id="latitude" name="latitude" value="${lat}">
-      
+
               <label>Lng</label>
               <input type="text" id="longitude" name="longitude" value="${lng}">
 
