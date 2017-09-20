@@ -1,6 +1,6 @@
 @import 'responsive-font-size';
 
-$primary-color: #9CC871;
+$primary-color: #d99728;
 $accent-color: #9CC871;
 $main-text-color: #6c6c6c;
 $secondary-text-color: #000;
@@ -8,6 +8,12 @@ $heading-font: Arial;
 $body-font: Arial;
 $bold-font: 600;
 
+.logo-small {
+	max-height: 4vh;
+	position: absolute;
+	bottom: 12px;
+	left: -78px;
+}
 
 .ghost {
 	margin-top: 15px;
@@ -66,10 +72,11 @@ $bold-font: 600;
  -webkit-box-shadow: 0 8px 6px -6px #999;
  -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
-	padding: 7px 2vw 5px 2vw;
+	padding: 7px 2vw 5px 3vw;
 	background-color: white;
 	.navbar-brand {
 		text-transform: uppercase;
+		position: relative;
 	}
 	.navbar-toggle {
 		span {
@@ -92,8 +99,9 @@ $bold-font: 600;
 	margin: 0 auto;
 	h1 {
 		@include responsive-font-size (3em, 8em, 640px, 1200px, 0.5em);
-		margin-top: 30vh;
+		// margin-top: 30vh;
 		color: $primary-color;
+		text-transform: uppercase;
 	}
 	h2 {
 		@include responsive-font-size (.5em, 2em, 640px, 1200px, 0.5em);
@@ -101,7 +109,11 @@ $bold-font: 600;
 		max-width: 800px;
 		margin: 0 auto;
 		}
-	.logins {
+	.logins {	.logo {
+		max-height: 25vh;
+		margin-top: 15vh;
+		margin-bottom: 3vh;
+	}
 		span {
 			padding: 20px;
 			@include responsive-font-size (.5em, 1.7em, 640px, 1200px, 0.5em);
@@ -133,6 +145,11 @@ $bold-font: 600;
 			margin-top: 10vh;
 			margin-bottom: 20vh;
 			}
+	}
+	.logo {
+		max-height: 25vh;
+		margin-top: 15vh;
+		margin-bottom: 3vh;
 	}
 }
 
