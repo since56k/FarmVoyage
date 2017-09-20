@@ -160,7 +160,6 @@ function initialize() {
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(12);
-            search();
         } else {
             document.getElementById('starting').placeholder = 'Starting';
             document.getElementById('destination').placeholder = 'Destination';
@@ -403,10 +402,10 @@ function createMarker(place) {
     service.getDetails(request, function(place, status) {
         gmarkers.push(marker);
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-
+            console.log();
             var lat = marker.position.lat();
             var lng = marker.position.lng();
-
+            console.log(place)
             //if (place.name === undefined) place.name = "result " + gmarkers.length;
             var side_bar_html = "<a href='javascript:google.maps.event.trigger(gmarkers[" + parseInt(gmarkers.length - 1) + "],\"click\");'>" + place.name + "</a><br>";
             side_bar_html += `
@@ -424,10 +423,10 @@ function createMarker(place) {
               <input type="submit" name="save" value="saveRoute">
         </form><br><br>`
             //document.getElementById('side_bar').innerHTML += side_bar_html;
-            // document.getElementById('latitude').value = marker.position.lat();
-            // document.getElementById('longitude').value = marker.position.lng();
-            // //we have to find the name and other info in place.name or marker.position.
-            // document.getElementById('placeName').value = place.name;
+            document.getElementById('latitude').value = marker.position.lat();
+            document.getElementById('longitude').value = marker.position.lng();
+            //find the name and other info in place.name or marker.position.
+            document.getElementById('namePlace').value = place.name;
         }
     });
 
