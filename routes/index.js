@@ -16,12 +16,6 @@ router.get('/main', (req, res) => {
 	});
 });
 
-//logout
-router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
-
 
 
 module.exports = router;

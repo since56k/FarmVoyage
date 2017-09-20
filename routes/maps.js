@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Place = require('../models/googleMapsInfo');
+const PlaceApi = require('../models/googleMapsInfo');
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
       location:    location,
     };
 
-  const place = new Place(newPlace);
+  const place = new PlaceApi(newPlace);
 
   // Save the restaurant to the Database
   place.save((error) => {
@@ -45,11 +45,6 @@ router.get('/api/locations', function(req, res, next) {
       res.json(places);
     }
   })
-});
-
-router.post('/logout', ensureLoggedIn('/login'), (req, res) => {
-    req.logout();
-    res.redirect('/');
 });
 
 module.exports = router;

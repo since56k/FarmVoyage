@@ -1,14 +1,17 @@
 const mongoose     = require('mongoose');
 const Schema       = mongoose.Schema;
 
-//spaghetti model
-
-const Place = new Schema({
-  type: 		{type: String},
-  keyword: 		{type: String},
-  name:  {type: String},
-  from:  {type: String},
-  to:  {type: String}
+const GoogleMaps = new Schema({
+  type      : {type: String},
+  keyword   : {type: String},
+  name      : {type: String},
+  from      : {type: String},
+  to        : {type: String}
+  }, {
+  timestamps: {
+    createdAt: "created_at",
+    updatedAt: "updated_at"
+  }
 });
 
-module.exports = mongoose.model('Place', Place);
+module.exports = mongoose.model('GoogleMaps', GoogleMaps);

@@ -3,12 +3,9 @@ const bcrypt   = require('bcrypt');
 const Schema   = mongoose.Schema;
 
 const UserSchema = new Schema({
-  email   : String,
-  password: String,
-  username: String,
-  description: String
-}, {
-  timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
+  email   : { type: String, required: true, index: { unique: true } },
+  password: { type: String, required: true },
+  username: { type: String, required: true }
 });
 
 UserSchema.methods.generateHash = function(password) {
@@ -23,3 +20,5 @@ UserSchema.methods.validPassword = function(password) {
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
+
+

@@ -10,7 +10,7 @@
         </select>
         <input type="text" name="starting" placeholder="starting point" class="form-control">
         <input type="text" name="destination" placeholder="destination" class="form-control">
-        <input type="number" name="search-radius" placeholder="search radius" class="form-control">
+        <input type="number" name="search-radius" class="form-control radius"><span>km from route</span>
         <select class="form-control" id="type">
           <option value="" disabled selected hidden>type</option>
           <option class="italy-op">Sample 1 IT</option>
@@ -25,21 +25,35 @@
         </select>
         <select class="form-control" id="keyword">
           <option value="" disabled selected hidden>keyword</option>
-          <option>Sample 1</option>
-          <option>Sample 2</option>
-          <option>Sample 3</option>
+          <option class="italy-op">Sample 1 IT</option>
+          <option class="italy-op">Sample 2 IT</option>
+          <option class="italy-op">Sample 3 IT</option>
+          <option class="spain-op">Sample 1 ES</option>
+          <option class="spain-op">Sample 2 ES</option>
+          <option class="spain-op">Sample 3 ES</option>
+          <option class="france-op">Sample 1 FR</option>
+          <option class="france-op">Sample 2 FR</option>
+          <option class="france-op">Sample 3 FR</option>
         </select>
         <button type="submit">Search</button>
       </form>
+
+      <% if (userSignedIn) { %>
       <div class="save-route">
         <form action="">
           <input type="text" name="name" placeholder="route name" id="route-name">
           <button type="submit">Save Route</button>
         </form>
+      <% } else { %>
+        <div class="save-route">
+            <p id="signin-route">Sign in to Save Route</p>
+            <button type="submit" id="disabled"><a href="/login">Save Route</a></button>
+      <% } %>
+
       </div>
     </div>
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 main-content">
-      <h1>GOOGLE MAP</h1>
+      <div id="map"></div>
     </div>
   </div>
 </div>

@@ -30,15 +30,13 @@
           <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
 								<% if (userSignedIn) { %>
-									<li><a href="/profile/account"><%= user.username %> </a></li>
+									<li><a href="/profile/account" class="username"><%= user.username %> </a></li>
 								<%} else { %>
 									<li><a href="/signup">sign up</a></li>
 								<% } %>
 
 								<% if (userSignedIn) { %>
-									<form action="/logout" method="POST">
-										<li><button>logout</button></li>
-                  </form>
+										<li><a href="/logout" id="logout">logout</a></li>
 								<%} else { %>
 									<li><a href="/login">log in</a></li>
 								<% } %>
@@ -48,8 +46,11 @@
   </nav>
 
       <%- body -%>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWXjc0ZgE358Zk-sIGqxzhY--3EEeASgo"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/map.js"></script>
 <script src="js/filter.js"></script>
 </body>
 </html>
