@@ -189,7 +189,10 @@ function initialize() {
 
     directionService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer({
-        map: map
+        map: map,
+        polylineOptions: {
+            strokeColor: "#d99728"
+        }
     });
 
     // skip the first character, we are not interested in the "?"
@@ -410,7 +413,7 @@ function createMarker(place) {
         <form action="/" method="post">
               <label>Lat</label>
               <input type="text" id="latitude" name="latitude" value="${lat}">
-      
+
               <label>Lng</label>
               <input type="text" id="longitude" name="longitude" value="${lng}">
 

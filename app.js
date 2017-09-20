@@ -10,8 +10,8 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
-const flash = require('connect-flash');
 const configPassport = require('./middleware/passport');
+const flash = require('connect-flash');
 
 //MODELS
 const User = require('./models/user');
@@ -30,13 +30,13 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
 
-
 app.use(session({
   secret: 'farm-voyage-dev',
   resave: false,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 }))
+
 
 configPassport(passport);
 

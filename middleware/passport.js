@@ -35,6 +35,7 @@ module.exports = (passport) => {
     });
     });
 
+
     passport.use('local-login', new LocalStrategy((username, password, next) => {
         User.findOne({ username }, (err, user) => {
             if (err) {
@@ -61,7 +62,7 @@ module.exports = (passport) => {
                 if (err){ return next(err); }
 
                 if (user) {
-                    return next(null, false);
+                    return next(null, false, { message: "Username already exists" });
                 } else {
                     const { username, email, description, password } = req.body;
                     const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
