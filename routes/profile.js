@@ -31,7 +31,6 @@ router.get('/account', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
-
 //Check this spaghetti crud
 
 //Crud for Route
@@ -41,30 +40,32 @@ router.get('/account', ensureLoggedIn('/login'), (req, res) => {
 //   });
 // });
 
-router.post('/:id/delete', (req, res, next) => {
-  const routeId = req.params.id;
-  PlaceSaved.findByIdAndRemove(routeId, (err, route) => {
-    if (err){ return next(err); }
-    return res.redirect('profile/route');
-  });
-});
-
-
-//Crud for User
-//list current user
-// router.get('/account/:id', function(req, res, next) {
-//   User.findById(req.params.id, (err, user) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     res.render('profile/account', {
-//       title: 'User info',
-//       user: user,
-//       session: req.session.currentUser
-//     });
+// router.post('/:id/delete', (req, res, next) => {
+//   const routeId = req.params.id;
+//   PlaceSaved.findByIdAndRemove(routeId, (err, route) => {
+//     if (err){ return next(err); }
+//     return res.redirect('profile/route');
 //   });
 // });
 
+
+//Crud for User
+
+
+router.post('account/:id', (req, res, next) => {
+  const userId = req.params.id;
+
+  const updates = {
+      username: req.body.name,
+      email: req.body.email
+  };
+  
+  User.findByIdAndUpdate(productId, updates, (err, user) => {
+    if (err)       { return res.render('profile/account', { user, errors: user.errors }); }
+    if (!user) { return next(new Error("404")); }
+    return res.redirect('profile/account');
+  });
+});
 
 
 module.exports = router;

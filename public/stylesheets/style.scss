@@ -9,8 +9,47 @@ $body-font: Arial;
 $bold-font: 600;
 
 
+.ghost {
+	margin-top: 15px;
+	margin-right: 8px;
+	float: left;
+	background-color: transparent;
+	border: none;
+	color: $primary-color;
+}
+
+.ghost2 {
+	display: none;
+}
+
+@media (max-width: 765px) {
+	.ghost2 {
+		display: inline;
+		float: right;
+		margin-top: 15px;
+		margin-right: 8px;
+		background-color: transparent;
+		border: none;
+		color: $primary-color;
+	}
+	.ghost {
+		display: none;
+	}
+}
+
 * {
 	box-sizing: border-box;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#disabled {
+	background-color: $primary-color * .6;
+}
+
+#map {
+	width: auto;
+	margin: 0;
+	height: 93vh;
 }
 
 #disabled {
@@ -24,11 +63,14 @@ $bold-font: 600;
 }
 
 .navbar {
-	border-bottom: .5px solid $main-text-color;
-	padding: 5px;
-	padding-left: 5vw;
-	padding-right: 5vw;
+ -webkit-box-shadow: 0 8px 6px -6px #999;
+ -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+	padding: 7px 2vw 5px 2vw;
 	background-color: white;
+	.navbar-brand {
+		text-transform: uppercase;
+	}
 	.navbar-toggle {
 		span {
 			background-color: $primary-color;
@@ -36,8 +78,13 @@ $bold-font: 600;
 	}
 	a {
 		color: $primary-color;
+<<<<<<< HEAD
 	}
 
+=======
+		@include responsive-font-size (1.4em, 1.5em, 640px, 1200px, 0.5em);
+	}
+>>>>>>> f426e04ef5869735dabaf0937c0cd01c6ad9af4e
 }
 
 .home {
@@ -249,14 +296,23 @@ $bold-font: 600;
 
 .main {
 	margin-top: 7vh;
+	#map-contain {
+		padding: 0;
+		height: 93vh;
+	}
 	.main-content {
-		border-right: .5px solid $main-text-color;
+	 -webkit-box-shadow: 2px 0 5px -2px #999;
+		box-shadow: 2px 0 5px -2px #999;
+		z-index: 1;
 		height: 93vh;
 		text-align: center;
 		.search-filters {
 			margin-top: 5vh;
 			input, select {
+<<<<<<< HEAD
 				// display: block;
+=======
+>>>>>>> f426e04ef5869735dabaf0937c0cd01c6ad9af4e
 				text-align: center;
 				margin: 0 auto;
 				margin-bottom: 20px;
@@ -264,11 +320,18 @@ $bold-font: 600;
 				color: $main-text-color;
 			}
 	}
+	#search-collapse {
+		margin-top: 3.5vh;
+	}
 	#route-name {
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
+<<<<<<< HEAD
 		margin-top: 28vh;
+=======
+		margin-top: 20vh;
+>>>>>>> f426e04ef5869735dabaf0937c0cd01c6ad9af4e
 		margin-bottom: 2vh;
 		display: block;
 	}

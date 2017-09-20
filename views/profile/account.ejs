@@ -19,10 +19,25 @@
     <div class="col-sm-12">
       <p>DEFAULT COUNTRY</p> <span></span>
       <span>CHANGE USERNAME: </span>  <span><strong><%= user.username %></strong></span>
-      <p>CHANGE EMAIL</p> <span></span>
+      <br>
+      <span>CHANGE EMAIL</span> <span><strong><%= user.email %></strong></span>
       <p>CHANGE PASSWORD</p> <span></span>
     </div>
   </div>
+  <div class="row profile-content">
+    <div class="col-sm-12">
+    <form action="/account/<%= user._id %>" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<%= user.username %>">
+
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" value="<%= user.email %>">
+
+      <button type="submit">Update Profile</button>
+    </form>
+    </div>
+  </div>
+
 </div>
 
 
