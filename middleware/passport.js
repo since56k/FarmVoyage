@@ -97,7 +97,7 @@ module.exports = (passport) => {
         }
 
         const newUser = new User({
-          facebookID: profile.id
+          facebookID: profile.id,
         });
 
         newUser.save((err) => {
@@ -125,7 +125,8 @@ module.exports = (passport) => {
         }
 
         const newUser = new User({
-          googleID: profile.id
+          googleID: profile.id,
+          username: profile.name.givenName + " " + profile.name.familyName
         });
 
         newUser.save((err) => {
