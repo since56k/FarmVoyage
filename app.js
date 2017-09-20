@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 const configPassport = require('./middleware/passport');
 const flash = require('connect-flash');
+require("dotenv").config();
 
 //MODELS
 const User = require('./models/user');
@@ -19,7 +20,7 @@ const GoogleMapsInfo = require('./models/googleMapsInfo');
 const SavedFarmInfo = require('./models/savedFarmInfo');
 
 //MONGOOSE CONNECTION
-mongoose.connect('mongodb://localhost:27017/farm-voyage-development');
+mongoose.connect(process.env.MONGODB_URI);
 
 //DEFINE EXPRESS APP
 const app = express();

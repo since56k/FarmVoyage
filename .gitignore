@@ -31,3 +31,5 @@ bower_components
 npm-debug.log
 
 step-by-step.txt
+
+.env
