@@ -2,8 +2,6 @@ const mongoose     = require('mongoose');
 const Schema       = mongoose.Schema;
 const User         = require('./user');
 
-
-
 //need another model
 const GoogleMaps = new Schema({
   userId    : {type: Schema.Types.ObjectId, ref: 'User', required: true },
@@ -22,6 +20,9 @@ const GoogleMaps = new Schema({
     updatedAt: "updated_at"
   }
 });
+
+
+//Adding the routeId to the user Id
 
 GoogleMaps.methods.addRouteId = function(routes, cb){
   var userId = this.userId;

@@ -374,9 +374,9 @@ function createMarker(place) {
         reference: place.reference
     };
     //print stuff
-    
 
-     
+
+
       // <form action="/maps/save/place" method="post">
       //   <input type="text" id="latitude" name="latitude" value="">
       //   <input type="text" id="longitude" name="longitude" value="">
@@ -386,13 +386,9 @@ function createMarker(place) {
 
     google.maps.event.addListener(marker, 'click', function() {
         service.getDetails(request, function(place, status) {
-            
+
             console.log('place', place)
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                
-                
-                  
-
                 var contentStr = '<form action="/maps/save/place" method="post">' + 
                                      '<h3>'+ place.name +'</h3>' +
                                      '<input type="hidden" id="placeName" name="placeName" value="' + place.name + '">' +
@@ -408,7 +404,7 @@ function createMarker(place) {
                                      '<input type="hidden" id="latitude" name="latitude" value="' + marker.position.lat() + '">' +
                                      '<input type="hidden" id="longitude" name="longitude" value="' + marker.position.lng() + '">' +
                                      '<br /><button type="input">Save Place</button>' +
-                                 '<form>';   
+                                 '<form>';
 
 
                 infowindow.setContent(contentStr);
