@@ -6,7 +6,7 @@ const User         = require('./user');
 
 //need another model
 const GoogleMaps = new Schema({
-   
+  userId    : {type: Schema.Types.ObjectId, ref: 'User', required: true },
   route     : {type: String},
   country   : {type: String},
   to        : {type: String},
@@ -22,5 +22,19 @@ const GoogleMaps = new Schema({
     updatedAt: "updated_at"
   }
 });
+
+GoogleMaps.methods.addRouteId = function(routes, cb){
+  var userId = this.userId;
+  mongoose.models.User.findByIdAndUpdate(userId, {
+    $push: { routes: this._id }
+  }, (err) => {
+    if (!err){
+      return cb()
+    } else {
+      return cb(err);
+    }
+  })
+}
+
 
 module.exports = mongoose.model('GoogleMaps', GoogleMaps);
