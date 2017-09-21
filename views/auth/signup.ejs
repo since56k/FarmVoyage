@@ -1,1 +1,18 @@
-<h1>Sign Up</h1>
+
+<div class="signup">
+  <h1>SIGN UP</h1>
+  <form action="/signup" method="POST">
+    <input type="text" name="username" placeholder="username">
+    <input type="text" name="email" placeholder="email">
+    <input type="password" name="password" placeholder="password">
+    <button>Create Account</button>
+  </form>
+  <img src="images/no border.svg" class="logo" alt="logo">
+  <a href="/auth/facebook"><button class="fb"><i class="fa fa-facebook fa-lg"></i> Sign up with Facebook</button></a>
+  <a href="/auth/google"><button class="google"><i class="fa fa-google-plus fa-lg"></i> Sign up with Google</button></a>
+</div>
+
+<% if (typeof(errorMessage) !== "undefined") { %>
+  <div class="error-message"><%= errorMessage %></div>
+<% } %>
+

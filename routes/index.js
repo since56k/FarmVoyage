@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express    = require('express');
 const passport   = require('passport');
 const router     = express.Router();
@@ -47,6 +48,30 @@ router.get('/login', function(req, res, next) {
 router.get('/signup', function(req, res, next) {
   res.render('auth/signup', { title: 'auth SignUp' });
 });
+=======
+const express = require('express');
+const router = express.Router();
+const passport   = require('passport');
+const {
+  ensureLoggedIn,
+  ensureLoggedOut
+} = require('connect-ensure-login');
+
+//get home page
+router.get('/', ensureLoggedOut('/main'), function(req, res, next) {
+  res.render('index', { title: 'Farm Voyage' });
+});
+
+//home to main search
+router.get('/main', (req, res) => {
+    res.render('main', {
+    message: req.flash("error"),
+    user : req.user
+	});
+});
+
+
+>>>>>>> master
 
 module.exports = router;
 

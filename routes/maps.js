@@ -1,8 +1,46 @@
-const express    = require('express');
+
+var express = require('express');
+var router = express.Router();
+const RouteSave = require('../models/googleRoute.js');
+const PlaceSave = require('../models/googlePlace.js');
 const passport   = require('passport');
-const router     = express.Router();
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
-const Place = require('../models/googleMapsInfo');
+
+//get home page
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Farm Voyage' }, {user : req.user});
+});
+
+//save route in db
+router.post('/save/route', (req, res, next) => {
+
+  let location = {
+    type: 'Point',
+    coordinates: [req.body.longitude, req.body.latitude]
+  };
+
+  // Create a new route with location
+    const newRoute = {
+      titleRoute:  req.body.nameRoute,
+      from:        req.body.starting,
+      to:          req.body.destination,
+      type:        req.body.type,
+      name:        req.body.name,
+      keyword:     req.body.keyword,
+      radius:      req.nody.radius
+      
+    };
+
+  const route = new RouteSave(newRoute);
+
+  route.save((error) => {
+    if (error) { console.log(error) }
+    else {
+      res.redirect('/');
+    }
+  })
+});
+
 
 //from maps to ->
 
@@ -25,8 +63,9 @@ router.get('profile/route', ensureLoggedIn('/login'), (req, res) => {
 });
 
 //save place in db
-router.post('/', (req, res, next) => {
-  // Get Params from POST
+
+router.post('/save/place', (req, res, next) => {
+
   let location = {
     type: 'Point',
     coordinates: [req.body.longitude, req.body.latitude]
@@ -34,15 +73,13 @@ router.post('/', (req, res, next) => {
 
   // Create a new Place with location
     const newPlace = {
-      name:        req.body.placeName,
-      description: req.body.description,
-      type:        req.body.type,
-      location:    location,
+      namePlace:        req.body.namePlace,
+      emailPlace:       req.body.emailPlace,
+      websitePlace:     req.body.websitePlace,
+      location:         location,
     };
 
-  const place = new Place(newPlace);
-
-  // Save the place to the Database
+  const place = new PlaceSave(newPlace);
   place.save((error) => {
     if (error) { console.log(error) }
     else {
@@ -51,7 +88,8 @@ router.post('/', (req, res, next) => {
   })
 });
 
-//go to this url for get api
+
+//get api
 router.get('/api/locations', function(req, res, next) {
   Place.find({}, (error, places) => {
     if (error) {

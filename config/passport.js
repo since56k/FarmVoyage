@@ -1,14 +1,13 @@
 // config/passport.js
 // load all the things we need
 const LocalStrategy = require('passport-local').Strategy;
-//const FbStrategy = require('passport-facebook').Strategy;
-//const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const FbStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 const passport = require("passport");
 
 const bcrypt = require('bcrypt');
 const bcryptSalt     = 10;
-
 const User = require("../models/user");
 
 // load up the user model
@@ -34,6 +33,7 @@ module.exports = (passport) => {
         cb(null, user);
     });
     });
+
 
     passport.use('local-login', new LocalStrategy((username, password, next) => {
         User.findOne({ username }, (err, user) => {
@@ -61,7 +61,7 @@ module.exports = (passport) => {
                 if (err){ return next(err); }
 
                 if (user) {
-                    return next(null, false);
+                    return next(null, false, { message: "Username already exists" });
                 } else {
                     const { username, email, description, password } = req.body;
                     const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -81,61 +81,64 @@ module.exports = (passport) => {
         });
     }));
 
-    // //FACEBOOK STRATEGY
-    // passport.use(new FbStrategy({
-    //   clientID: "857307061101319",
-    //   clientSecret: "6a3eace08f83082fe80681f9078c0105",
-    //   callbackURL: "/auth/facebook/callback"
-    // }, (accessToken, refreshToken, profile, done) => {
-    //   User.findOne({ facebookID: profile.id }, (err, user) => {
-    //     if (err) {
-    //       return done(err);
-    //     }
-    //     if (user) {
-    //       return done(null, user);
-    //     }
+    //FACEBOOK STRATEGY
+    passport.use(new FbStrategy({
+      clientID: "857307061101319",
+      clientSecret: "6a3eace08f83082fe80681f9078c0105",
+      callbackURL: "/auth/facebook/callback",
+      profileFields: ['id', 'displayName', 'email']
+    }, (accessToken, refreshToken, profile, done) => {
+      User.findOne({ facebookID: profile.id }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(null, user);
+        }
 
-    //     const newUser = new User({
-    //       facebookID: profile.id
-    //     });
+        const newUser = new User({
+          facebookID: profile.id,
+          username: profile.displayName,
+          email: profile.emails[0].value
+        });
+        newUser.save((err) => {
+          if (err) {
+            return done(err);
+          }
+          done(null, newUser);
+        });
+      });
+    }));
 
-    //     newUser.save((err) => {
-    //       if (err) {
-    //         return done(err);
-    //       }
-    //       done(null, newUser);
-    //     });
-    //   });
 
-    // }));
+    //GOOGLE STRATEGY
+    passport.use(new GoogleStrategy({
+      clientID: "881861196583-d8gjkkped1kgukjsg9cb6eedqja3k8c0.apps.googleusercontent.com",
+      clientSecret: "JwlD-62nOiJLnODXHrWR6ftV",
+      callbackURL: "/auth/google/callback"
+    }, (accessToken, refreshToken, profile, done) => {
+      User.findOne({ googleID: profile.id }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(null, user);
+        }
 
+        const newUser = new User({
+          googleID: profile.id,
+          username: profile.name.givenName + " " + profile.name.familyName,
+          email: profile.emails[0].value
+        });
 
-    // //GOOGLE STRATEGY
-    // passport.use(new GoogleStrategy({
-    //   clientID: "881861196583-d8gjkkped1kgukjsg9cb6eedqja3k8c0.apps.googleusercontent.com",
-    //   clientSecret: "JwlD-62nOiJLnODXHrWR6ftV",
-    //   callbackURL: "/auth/google/callback"
-    // }, (accessToken, refreshToken, profile, done) => {
-    //   User.findOne({ googleID: profile.id }, (err, user) => {
-    //     if (err) {
-    //       return done(err);
-    //     }
-    //     if (user) {
-    //       return done(null, user);
-    //     }
+        newUser.save((err) => {
+          if (err) {
+            return done(err);
+          }
+          done(null, newUser);
+        });
+      });
 
-    //     const newUser = new User({
-    //       googleID: profile.id
-    //     });
-
-    //     newUser.save((err) => {
-    //       if (err) {
-    //         return done(err);
-    //       }
-    //       done(null, newUser);
-    //     });
-    //   });
-
-    // }));
+    }));
 
 };

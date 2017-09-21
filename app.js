@@ -10,15 +10,18 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
+const configPassport = require('./middleware/passport');
 const flash = require('connect-flash');
-const configPassport = require('./config/passport');
+require("dotenv").config();
+>>>>>>> master
 
 //MODELS
 const User = require('./models/user');
-const GoogleMapsInfo = require('./models/googleMapsInfo');
-const SavedFarmInfo = require('./models/savedFarmInfo');
+const googlePlace = require('./models/googlePlace');
+const googleRoute = require('./models/googleRoute');
 
 //MONGOOSE CONNECTION
+//mongoose.connect(process.env.MONGODB_URI);
 mongoose.connect('mongodb://localhost:27017/farm-voyage-development');
 
 //DEFINE EXPRESS APP
@@ -30,13 +33,13 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
 
-
 app.use(session({
   secret: 'farm-voyage-dev',
   resave: false,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 }))
+
 
 configPassport(passport);
 

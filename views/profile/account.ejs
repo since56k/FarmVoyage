@@ -1,5 +1,46 @@
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-this route has to be ensured 
+
+<div class="container-fluid profile">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Profile</h1>
+    </div>
+  </div>
+  <div class="row profile-headers">
+    <div class="col-xs-4">
+      <a href="/profile/route"><h2>Routes</h2></a>
+    </div>
+    <div class="col-xs-4">
+      <a href="/profile/farm"><h2>Farms</h2></a>
+    </div>
+    <div class="col-xs-4">
+      <h2 class="active">Account</h2>
+    </div>
+  </div>
+  <div class="row profile-content">
+    <div class="col-sm-12">
+      <p>DEFAULT COUNTRY</p> <span></span>
+      <span>CHANGE USERNAME: </span>  <span><strong><%= user.username %></strong></span>
+      <br>
+      <span>CHANGE EMAIL</span> <span><strong><%= user.email %></strong></span>
+      <p>CHANGE PASSWORD</p> <span></span>
+    </div>
+  </div>
+  <div class="row profile-content">
+    <div class="col-sm-12">
+    <form action="/profile/account/<%= user._id %>" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<%= user.username %>">
+
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" value="<%= user.email %>">
+
+      <button type="submit">Update Profile</button>
+    </form>
+    </div>
+  </div>
+
+</div>
+
+
 
 
