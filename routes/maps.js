@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const DataApi = require('../models/googleMapsInfo');
+const RouteSave = require('../models/googleRoute.js');
+const PlaceSave = require('../models/googlePlace.js');
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
@@ -19,16 +20,17 @@ router.post('/save/route', (req, res, next) => {
 
   // Create a new route with location
     const newRoute = {
-      route:       req.body.nameRoute,
+      titleRoute:  req.body.nameRoute,
       from:        req.body.starting,
       to:          req.body.destination,
       type:        req.body.type,
       name:        req.body.name,
       keyword:     req.body.keyword,
+      radius:      req.nody.radius
       
     };
 
-  const route = new DataApi(newRoute);
+  const route = new RouteSave(newRoute);
 
   route.save((error) => {
     if (error) { console.log(error) }
@@ -49,12 +51,12 @@ router.post('/save/place', (req, res, next) => {
   // Create a new Place with location
     const newPlace = {
       namePlace:        req.body.namePlace,
-      emailPlace:        req.body.emailPlace,
+      emailPlace:       req.body.emailPlace,
       websitePlace:     req.body.websitePlace,
-      location:    location,
+      location:         location,
     };
 
-  const place = new DataApi(newPlace);
+  const place = new PlaceSave(newPlace);
 
   place.save((error) => {
     if (error) { console.log(error) }

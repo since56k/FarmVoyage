@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport   = require('passport');
-const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+const {
+  ensureLoggedIn,
+  ensureLoggedOut
+} = require('connect-ensure-login');
 
 //get home page
 router.get('/', ensureLoggedOut('/main'), function(req, res, next) {

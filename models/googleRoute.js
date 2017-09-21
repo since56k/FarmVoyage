@@ -1,10 +1,12 @@
 const mongoose     = require('mongoose');
 const Schema       = mongoose.Schema;
+const Place    = require('./googlePlace');
+const User = require('./user.js');
 
-const FarmInfo = new Schema({
+const Route = new Schema({
   titleRoute  : { type: String, required: true },
-  _RouteId  : { type: Schema.Types.ObjectId, ref: 'Campaign' },
-
+  placeId       : [ { type: Schema.Types.ObjectId, ref: 'Place' } ],
+  userId       : { type: Schema.Types.ObjectId, ref: 'User' },
   from   	  : { type: String, required: true },
   to          : { type: String, required: true },
   type 		  : { type: String, required: true },
@@ -19,6 +21,10 @@ const FarmInfo = new Schema({
 });
 
 
-module.exports = mongoose.model('FarmInfo', FarmInfo);
+module.exports = mongoose.model('Route', Route);
+
+
+
+
 
 

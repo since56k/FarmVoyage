@@ -16,8 +16,8 @@ require("dotenv").config();
 
 //MODELS
 const User = require('./models/user');
-const GoogleMapsInfo = require('./models/googleMapsInfo');
-const SavedFarmInfo = require('./models/savedFarmInfo');
+const googlePlace = require('./models/googlePlace');
+const googleRoute = require('./models/googleRoute');
 
 //MONGOOSE CONNECTION
 //mongoose.connect(process.env.MONGODB_URI);

@@ -42,7 +42,7 @@
             <option class="italy-op" value="vino">Vino 2 IT</option>
             <option class="italy-op" value="miele">Miele IT</option>
           </select>
-          <button id="get_route" type="submit">Search</button>
+          <button id="get_route">Search</button>
         </div>
 
         <% if (userSignedIn) { %>
@@ -59,6 +59,11 @@
         </div>
       </div>
       </form>
+
+
+
+      <!-- need search button outside form -->
+      
       
       <!--  my form is hidden by your f**g navbar-->
       <br>
@@ -67,7 +72,7 @@
         <input type="text" id="latitude" name="latitude" value="">
         <input type="text" id="longitude" name="longitude" value="">
         <input type="text" id="namePlace" name="namePlace" value="">
-        <button type="input">Save Place</button>
+        <button type="submit">Save Place</button>
       </form>  
 
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9"  id="map-contain">
