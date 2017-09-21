@@ -8,6 +8,7 @@ $heading-font: Arial;
 $body-font: Arial;
 $bold-font: 600;
 
+
 .logo-small {
 	max-height: 4vh;
 	position: absolute;
@@ -146,7 +147,7 @@ $bold-font: 600;
 	margin: 0 auto;
 	margin-top: 4vh;
 	.logo {
-		max-height: 12vh;
+		max-height: 8vh;
 		margin-top: 3vh;
 	}
 	.input {
@@ -232,7 +233,7 @@ $bold-font: 600;
 	margin: 0 auto;
 	margin-top: 15vh;
 	.logo {
-		max-height: 12vh;
+		max-height: 8vh;
 		margin-top: 3vh;
 	}
 	a {
@@ -337,7 +338,7 @@ $bold-font: 600;
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
-		margin-top: 1vh;
+		margin-top: 20vh;
 		margin-bottom: 2vh;
 		display: block;
 	}
@@ -345,9 +346,12 @@ $bold-font: 600;
 		@include responsive-font-size (1em, 1.5em, 640px, 1200px, 0.5em);
 		border: none;
 		margin: 0 auto;
-		margin-top: 23vh;
+		margin-top: 20vh;
 		margin-bottom: 2vh;
 		display: block;
+	}
+	#get_route {
+
 	}
 	button {
 		background-color: $primary-color;
