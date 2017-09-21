@@ -1,16 +1,13 @@
 const mongoose     = require('mongoose');
+const User         = require('./user');
 const Schema       = mongoose.Schema;
 
 const FarmInfo = new Schema({
-  titleRoute  : { type: String, required: true },
-  _RouteId  : { type: Schema.Types.ObjectId, ref: 'Campaign' },
-
-  from   	  : { type: String, required: true },
-  to          : { type: String, required: true },
-  type 		  : { type: String, required: true },
-  name 		  : { type: String, required: true },
-  keyword     : { type: String, required: true },
-  radius      : { type: Number, required: true, min: 1 },
+  userId          : { type: Schema.Types.ObjectId, ref: 'Route' },
+  namePlace       : { type: String, required: true },
+  websitePlace    : { type: String },
+  phonePlace      : { type: String },
+  location        : { type: {type:String}, coordinates: [Number]},
   }, {
   timestamps: {
     createdAt: "created_at",

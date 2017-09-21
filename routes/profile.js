@@ -19,21 +19,20 @@ router.get('/route', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
+
+//display and crud for farm
+
 router.get('/farm', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/farm', {
         user : req.user
     });
 });
 
-router.get('/account', ensureLoggedIn('/login'), (req, res) => {
-    res.render('profile/account', {
-        user : req.user
-    });
-});
 
-//Crud for User
-//show user
-router.get('/account', ensureLoggedIn(), (req, res, next) => {
+
+//display and crud for user
+
+router.get('/account', ensureLoggedIn('/login'), (req, res, next) => {
   User.findById(req.user._id, (err, user) => {
     if (err) {
       return next(err);
