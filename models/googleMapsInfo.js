@@ -23,4 +23,18 @@ const GoogleMaps = new Schema({
   }
 });
 
+GoogleMaps.methods.addRouteId = function(routes, cb){
+  var userId = this.userId;
+  mongoose.models.User.findByIdAndUpdate(userId, {
+    $push: { routes: this._id }
+  }, (err) => {
+    if (!err){
+      return cb()
+    } else {
+      return cb(err);
+    }
+  })
+}
+
+
 module.exports = mongoose.model('GoogleMaps', GoogleMaps);

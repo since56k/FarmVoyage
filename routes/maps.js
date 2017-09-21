@@ -32,19 +32,33 @@ router.post('/save/route', (req, res, next) => {
     };
 
 
-
   const route = new DataApi(newRoute);
 
+  route.addRouteId(route._id, (err) => {
+    if (err) {
+       return res.json("Error updating");
+     } else {
+       console.log("it works!")
+    }
+  })
+
   route.save((error) => {
-    if (error) { console.log(error) }
+    if (error) {
+      console.log(error)
+      }
     else {
       res.redirect('/');
-      var routeId = { routes: route._id };
-      User.findByIdAndUpdate(req.user._id, routeId);
-    }
-    console.log(routeId);
+      }
+      // var routeId = { routes: route._id };
+      // User.findByIdAndUpdate(req.user._id, routeId);
+    // console.log(routeId);
   })
 });
+
+
+
+
+
 
 
 

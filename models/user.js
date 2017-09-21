@@ -7,7 +7,7 @@ const UserSchema = new Schema({
   email   : { type: String, index: { unique: true } },
   password: { type: String },
   username: { type: String },
-  routes:   [ {type: String } ],
+  routes:   [{type: Schema.Types.ObjectId, ref: 'Routes'}],
   facebookID: String,
   googleID: String
 });
