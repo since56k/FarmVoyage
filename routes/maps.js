@@ -1,11 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const DataApi = require('../models/googleMapsInfo');
-<<<<<<< HEAD
 const DataPlace = require('../models/savedFarmInfo');
-=======
 const User = require('../models/user');
->>>>>>> c287e3d96748467d2f129e55cb7614a5cb9c6508
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 

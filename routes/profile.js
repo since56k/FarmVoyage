@@ -13,17 +13,18 @@ router.get('/', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-//display and crud for route
-=======
->>>>>>> c287e3d96748467d2f129e55cb7614a5cb9c6508
-
 router.get('/route', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/route', {
         user : req.user
     });
 });
 
+// router.get('/route/:id', ensureLoggedIn('/login'), (req, res, next) => {
+//   PlaceSaved.find({}).populate('userId').exec((err, places) => {
+//       res.render('profile/route', {palces});
+//     });
+  
+// });
 
 //display and crud for farm
 
@@ -84,6 +85,10 @@ router.post('/account/:id', ensureLoggedIn(), (req, res, next) => {
 //     res.render('profile/route', { route })
 //   });
 // });
+
+// routes/index.js
+
+
 
 // router.post('/:id/delete', (req, res, next) => {
 //   const routeId = req.params.id;
