@@ -25,7 +25,6 @@ router.get('/route', ensureLoggedIn('/login'), (req, res) => {
 router.get('/farm', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/farm', {
         user : req.user,
-        farm : req.PlaceSaved
     });
 });
 
