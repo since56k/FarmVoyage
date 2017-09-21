@@ -1,9 +1,9 @@
 const express    = require('express');
 const router     = express.Router();
 const passport   = require('passport');
-const PlaceSave = require('../models/googlePlace.js');
-const User       = require('../models/user.js');
-const ObjectId   = require('mongoose').Types.ObjectId;
+const PlaceSaved = require('../models/savedFarmInfo.js');
+const User = require('../models/user.js');
+const ObjectId                = require('mongoose').Types.ObjectId;
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 //index
@@ -43,6 +43,7 @@ router.get('/account', ensureLoggedIn(), (req, res, next) => {
   });
 });
 
+
 //this for edit from a link 
 router.get('/account/:id', ensureLoggedIn(), (req, res, next) => {
   const userId = req.params.userId;
@@ -75,14 +76,14 @@ router.post('/account/:id', ensureLoggedIn(), (req, res, next) => {
 
 //Crud for Route
 // router.get('/:id/route', (req, res, next) => {
-//   PlaceSave.findById(req.params.id, (err, route) => {
+//   PlaceSaved.findById(req.params.id, (err, route) => {
 //     res.render('profile/route', { route })
 //   });
 // });
 
 // router.post('/:id/delete', (req, res, next) => {
 //   const routeId = req.params.id;
-//   PlaceSave.findByIdAndRemove(routeId, (err, route) => {
+//   PlaceSaved.findByIdAndRemove(routeId, (err, route) => {
 //     if (err){ return next(err); }
 //     return res.redirect('profile/route');
 //   });

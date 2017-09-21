@@ -374,16 +374,40 @@ function createMarker(place) {
         reference: place.reference
     };
     //print stuff
+    
+
+     
+      // <form action="/maps/save/place" method="post">
+      //   <input type="text" id="latitude" name="latitude" value="">
+      //   <input type="text" id="longitude" name="longitude" value="">
+      //   <input type="text" id="namePlace" name="namePlace" value="">
+      //   <button type="input">Save Place</button>
+      // </form>
+
     google.maps.event.addListener(marker, 'click', function() {
         service.getDetails(request, function(place, status) {
+            
             console.log('place', place)
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                var contentStr = '<h5>' + place.name + '</h5><p>' + place.formatted_address;
-                if (!!place.formatted_phone_number) contentStr += '<br>' + place.formatted_phone_number;
-                if (!!place.website) contentStr += '<br><a target="_blank" href="' + place.website + '">' + place.website + '</a>';
-                contentStr += '<br>' + place.types + '</p>';
-                contentStr += '<br>' + '<p>' + 'Lat: </p>' + marker.position.lat();
-                contentStr += '<br>' + '<p>' + 'Lng: </p>' + marker.position.lng();
+               
+
+                var contentStr = '<form action="/maps/save/place" method="post">' + 
+                                     '<h3>'+ place.name +'</h3>' +
+                                     '<br /><input type="text" id="placeName" name="placeName" value="' + place.name + '">' +
+                                     '<strong>'+ place.types +'</strong>' +
+                                     '<br /><input type="text" id="placeType" name="placeType" value="' + place.types + '">' +
+                                     '<strong>'+ place.formatted_phone_number +'</strong>' +
+                                     '<br /><input type="text" id="placePhone" name="placePhone" value="' + place.formatted_phone_number + '">' +
+                                     '<strong>'+ place.website +'</strong>' +
+                                     '<br /><input type="text" id="placeWebsite" name="placeWebsite" value="' + place.website + '">' +
+                                     '<strong>'+ place.formatted_address +'</strong>' +
+                                     '<br /><input type="text" id="placeAddress" name="placeAddress" value="' + place.formatted_address + '">' +
+                                     '<strong>Geo Location</strong>' +
+                                     '<br /><input type="text" id="latitude" name="latitude" value="' + marker.position.lat() + '">' +
+                                     '<br /><input type="text" id="longitude" name="longitude" value="' + marker.position.lng() + '">' +
+                                     '<button type="input">Save Place</button>' +
+                                 '<form>';   
+
                 infowindow.setContent(contentStr);
                 infowindow.open(map, marker);
 
@@ -423,14 +447,21 @@ function createMarker(place) {
               <input type="submit" name="save" value="saveRoute">
         </form><br><br>`
             //document.getElementById('side_bar').innerHTML += side_bar_html;
-            document.getElementById('latitude').value = marker.position.lat();
-            document.getElementById('longitude').value = marker.position.lng();
+            // document.getElementById('latitude').value = marker.position.lat();
+            // document.getElementById('longitude').value = marker.position.lng();
             //find the name and other info in place.name or marker.position.
-            document.getElementById('namePlace').value = place.name;
+            // document.getElementById('namePlace').value = place.name;
         }
     });
 
 }
+
+// var contentStr = '<h5>' + place.name + '</h5><p>' + place.formatted_address;
+//                 if (!!place.formatted_phone_number) contentStr += '<br>' + place.formatted_phone_number;
+//                 if (!!place.website) contentStr += '<br><a target="_blank" href="' + place.website + '">' + place.website + '</a>';
+//                 contentStr += '<br>' + place.types + '</p>';
+//                 contentStr += '<br>' + '<p>' + 'Lat: </p>' + marker.position.lat();
+//                 contentStr += '<br>' + '<p>' + 'Lng: </p>' + marker.position.lng();
 
 
 google.maps.event.addDomListener(window, 'load', initialize);

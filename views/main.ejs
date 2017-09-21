@@ -42,7 +42,6 @@
             <option class="italy-op" value="vino">Vino 2 IT</option>
             <option class="italy-op" value="miele">Miele IT</option>
           </select>
-
         </div>
 
         <% if (userSignedIn) { %>
@@ -60,19 +59,10 @@
       </div>
       </form>
 
-
       <button id="get_route" type="submit">Search</button>
 
-      <!--  my form is hidden by your f**g navbar-->
-      <br>
-      <!-- save place form, this get only the last result -->
-      <form action="/maps/save/place" method="post">
-        <input type="text" id="latitude" name="latitude" value="">
-        <input type="text" id="longitude" name="longitude" value="">
-        <input type="text" id="namePlace" name="namePlace" value="">
 
-        <button type="input">Save Place</button>
-      </form>
+      
 
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9"  id="map-contain">
       <div id="map"></div>
