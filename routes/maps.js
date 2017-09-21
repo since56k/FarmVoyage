@@ -84,8 +84,6 @@ router.post('/save/place', (req, res, next) => {
     }
   })
 
-
-
   place.save((error) => {
     if (error) { console.log(error) }
     else {

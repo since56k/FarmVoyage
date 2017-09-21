@@ -42,7 +42,7 @@
 								<button data-toggle="collapse" data-target="#search-menu" id="search-collapse" class="ghost"><i class="fa fa-search fa-lg" aria-hidden="true"></i>
 								</button>
 								<% if (userSignedIn) { %>
-									<li><a href="/profile/account" class="username"><%= user.username %> </a></li>
+									<li><a href="/profile/account" class="username"><%=  %> </a></li>
 								<%} else { %>
 									<li><a href="/signup">sign up</a></li>
 								<% } %>

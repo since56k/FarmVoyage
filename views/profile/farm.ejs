@@ -17,8 +17,22 @@
   </div>
   <div class="row profile-content">
     <div class="col-sm-12">
-      <p>SAVED FARM 1</p>
-      <p>SAVED FARM 2</p>
+       <h3>Saved Places <%= user.username %></h3>
+      
+      <% if (places.length > 0) { %>
+        <% places.forEach(function(place, i) { %>
+          <div class="">
+        
+            <ul>
+              <li><%= i %> - <%= place.namePlace %></li>
+            </ul>
+
+        <% }) %>
+        <% } else { %>
+        <div class="">
+          <p><%= user.username %> hasn't places yet.</p>
+        </div>
+      <% } %>
 
     </div>
   </div>
