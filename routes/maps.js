@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const DataApi = require('../models/googleMapsInfo');
+const User = require('../models/user');
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
@@ -31,15 +32,21 @@ router.post('/save/route', (req, res, next) => {
     };
 
 
+
   const route = new DataApi(newRoute);
 
   route.save((error) => {
     if (error) { console.log(error) }
     else {
       res.redirect('/');
+      var routeId = { routes: route._id };
+      User.findByIdAndUpdate(req.user._id, routeId);
     }
+    console.log(routeId);
   })
 });
+
+
 
 //save place in db
 router.post('/save/place', (req, res, next) => {

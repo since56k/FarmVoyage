@@ -6,7 +6,7 @@ const Places       = require('./savedFarmInfo');
 
 //need another model
 const GoogleMaps = new Schema({
-  userId    : { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  userId    : {type: Schema.Types.ObjectId, ref: 'User', required: true },
   route     : {type: String},
   country   : {type: String},
   to        : {type: String},

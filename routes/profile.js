@@ -13,6 +13,7 @@ router.get('/', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
+
 router.get('/route', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/route', {
         user : req.user
@@ -44,7 +45,7 @@ router.get('/account', ensureLoggedIn(), (req, res, next) => {
 });
 
 
-//this for edit from a link 
+//this for edit from a link
 router.get('/account/:id', ensureLoggedIn(), (req, res, next) => {
   const userId = req.params.userId;
   if (req.user._id == userId) {
@@ -62,7 +63,7 @@ router.post('/account/:id', ensureLoggedIn(), (req, res, next) => {
       username: req.body.name,
       email: req.body.email
   };
-  
+
   User.findByIdAndUpdate(userId, updates, (err, user) => {
     if (err)       { return res.render('profile/account', { user, errors: user.errors }); }
     if (!user) { return next(new Error("404")); }
