@@ -1,14 +1,14 @@
 <div class="container-fluid main">
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 main-content collapse-in" id="search-menu">
-    <form action="/maps/save/route" method="post">
+      <form action="/maps/save/route" method="post">
         <div class="search-filters">
-        <select class="form-control" name="country" id="country">
+          <select class="form-control" name="country" id="country">
             <option disabled selected hidden value="all">country</option>
             <option id="italy-select" value="it">Italy</option>
             <option id="spain-select" value="es">Spain</option>
             <option id="france-select" value="fr">France</option>
-          </select>
+        </select>
           <input type="text" name="starting" id="starting" placeholder="starting point" class="form-control">
           <input type="text" name="destination" id="destination" placeholder="destination" class="form-control">
           <input type="number" name="searchRadius" id="distance" min="1" value="1" class="form-control radius"><span>km from route</span>
@@ -46,27 +46,24 @@
 
         <% if (userSignedIn) { %>
         <div class="save-route">
-
             <input type="text" name="nameRoute" placeholder="route name" id="route-name">
             <button id="save_route" type="submit">Save Route</button>
 
         <% } else { %>
           <div class="save-route">
               <p id="signin-route">Sign in to Save Route</p>
-              <button type="submit" id="disabled"><a href="/login">Save Route</a></button>
+              <button type="submit" id="disabled"><a href="/login">Sign in</a></button>
         <% } %>
         </div>
-      </div>
       </form>
-
-      <button id="get_route" type="submit">Search</button>
-
+      
+        <button id="get_route" type="submit">Search</button>
+      </div>
 
       
 
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9"  id="map-contain">
       <div id="map"></div>
-    </div>
     </div>
   </div>
 </div>

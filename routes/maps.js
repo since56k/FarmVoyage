@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const DataApi = require('../models/googleMapsInfo');
+const DataPlace = require('../models/savedFarmInfo');
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
@@ -51,14 +52,16 @@ router.post('/save/place', (req, res, next) => {
 
   // Create a new Place with location
     const newPlace = {
-      
+      userId:         req.user._id,
       namePlace:      req.body.placeName,
       phonePlace:     req.body.placePhone,
       websitePlace:   req.body.placeWebsite,
       location:       location,
     };
 
-  const place = new DataApi(newPlace);
+  const place = new DataPlace(newPlace);
+
+  console.log(place)
 
   place.save((error) => {
     if (error) { console.log(error) }

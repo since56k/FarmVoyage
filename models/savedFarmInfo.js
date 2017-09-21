@@ -3,14 +3,11 @@ const User         = require('./user');
 const Schema       = mongoose.Schema;
 
 const FarmInfo = new Schema({
+  userId          : { type: Schema.Types.ObjectId, ref: 'Route' },
   namePlace       : { type: String, required: true },
-  websitePlace  : { type: String, required: true },
-  userId  : { type: Schema.Types.ObjectId, ref: 'Route' },
-
-  
-  phonePlace          : { type: String, required: true },
-  type 		  : { type: String, required: true },
-  location  : { type: {type:String}, coordinates: [Number]},
+  websitePlace    : { type: String },
+  phonePlace      : { type: String },
+  location        : { type: {type:String}, coordinates: [Number]},
   }, {
   timestamps: {
     createdAt: "created_at",
