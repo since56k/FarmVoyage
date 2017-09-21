@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 main-content collapse-in" id="search-menu">
     <form action="/maps/save/route" method="post">
         <div class="search-filters">
-        <select class="form-control" id="country">
+        <select class="form-control" name="country" id="country">
             <option disabled selected hidden value="all">country</option>
             <option id="italy-select" value="it">Italy</option>
             <option id="spain-select" value="es">Spain</option>
@@ -11,7 +11,7 @@
           </select>
           <input type="text" name="starting" id="starting" placeholder="starting point" class="form-control">
           <input type="text" name="destination" id="destination" placeholder="destination" class="form-control">
-          <input type="number" name="search-radius" id="distance" min="1" value="1" class="form-control radius"><span>km from route</span>
+          <input type="number" name="searchRadius" id="distance" min="1" value="1" class="form-control radius"><span>km from route</span>
           <select class="form-control" id="type" name="type">
             <option value="" disabled selected hidden>type</option>
             <option class="italy-op"  value="food">Food IT</option>
@@ -42,15 +42,15 @@
             <option class="italy-op" value="vino">Vino 2 IT</option>
             <option class="italy-op" value="miele">Miele IT</option>
           </select>
-          <button id="get_route">Search</button>
+
         </div>
 
         <% if (userSignedIn) { %>
         <div class="save-route">
-          
+
             <input type="text" name="nameRoute" placeholder="route name" id="route-name">
             <button id="save_route" type="submit">Save Route</button>
-          
+
         <% } else { %>
           <div class="save-route">
               <p id="signin-route">Sign in to Save Route</p>
@@ -61,10 +61,8 @@
       </form>
 
 
+      <button id="get_route" type="submit">Search</button>
 
-      <!-- need search button outside form -->
-      
-      
       <!--  my form is hidden by your f**g navbar-->
       <br>
       <!-- save place form, this get only the last result -->
@@ -72,12 +70,13 @@
         <input type="text" id="latitude" name="latitude" value="">
         <input type="text" id="longitude" name="longitude" value="">
         <input type="text" id="namePlace" name="namePlace" value="">
-        <button type="submit">Save Place</button>
-      </form>  
+
+        <button type="input">Save Place</button>
+      </form>
 
     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9"  id="map-contain">
       <div id="map"></div>
     </div>
-        </div>
+    </div>
   </div>
 </div>

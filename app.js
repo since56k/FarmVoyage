@@ -6,18 +6,19 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
-const bcrypt = require('bcrypt');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 const configPassport = require('./middleware/passport');
 const flash = require('connect-flash');
 require("dotenv").config();
 
+<<<<<<< HEAD
 //MODELS
 const User = require('./models/user');
 const googlePlace = require('./models/googlePlace');
 const googleRoute = require('./models/googleRoute');
+=======
+>>>>>>> 42248419cbef8b5d7df27d008bfa9d1f1976082a
 
 //MONGOOSE CONNECTION
 //mongoose.connect(process.env.MONGODB_URI);
@@ -36,9 +37,9 @@ app.use(session({
   secret: 'farm-voyage-dev',
   resave: false,
   saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
 }))
 
+app.use(flash());
 
 configPassport(passport);
 
@@ -46,7 +47,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //PASSPORT
-app.use(flash());
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

@@ -20,17 +20,20 @@ router.post('/save/route', (req, res, next) => {
 
   // Create a new route with location
     const newRoute = {
-      titleRoute:  req.body.nameRoute,
-      from:        req.body.starting,
+      userId:      req.user._id,
+      route:       req.body.nameRoute,
+      country:     req.body.country,
       to:          req.body.destination,
+      from:        req.body.starting,
+      distance:    req.body.searchRadius,
       type:        req.body.type,
-      name:        req.body.name,
       keyword:     req.body.keyword,
-      radius:      req.nody.radius
       
     };
 
   const route = new RouteSave(newRoute);
+      name:        req.body.name
+    };
 
   route.save((error) => {
     if (error) { console.log(error) }

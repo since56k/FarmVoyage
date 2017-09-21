@@ -1,10 +1,20 @@
 const mongoose     = require('mongoose');
 const Schema       = mongoose.Schema;
+const User         = require('./user');
+const Places       = require('./googleRoute');
 
-const Place = new Schema({
-  namePlace : {type: String},
-  emailPlace : {type: String},
-  websitePlace : {type: String},
+
+//need another model
+const GoogleMaps = new Schema({
+  userId    : { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  route     : {type: String},
+  country   : {type: String},
+  to        : {type: String},
+  from      : {type: String},
+  distance  : {type: Number},
+  type      : {type: String},
+  keyword   : {type: String},
+  name      : {type: String},
   location  : { type: {type:String}, coordinates: [Number]},
   }, {
   timestamps: {
@@ -13,8 +23,4 @@ const Place = new Schema({
   }
 });
 
-module.exports = mongoose.model('Place', Place);
-
-
-
-
+module.exports = mongoose.model('GoogleMaps', GoogleMaps);
