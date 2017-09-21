@@ -64,12 +64,11 @@ module.exports = (passport) => {
                 if (user) {
                     return next(null, false, { message: "Username already exists" });
                 } else {
-                    const { username, email, description, password } = req.body;
+                    const { username, email, password } = req.body;
                     const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
                     const newUser = new User({
                     username,
                     email,
-                    description,
                     password: hashPass
                     });
 

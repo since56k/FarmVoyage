@@ -28,6 +28,12 @@ $bold-font: 600;
 	display: none;
 }
 
+.error-message {
+	@include responsive-font-size (1.4em, 1.5em, 640px, 1200px, 0.5em);
+	margin-top: 1.5vh;
+	color:  #dd4b39;
+}
+
 @media (max-width: 765px) {
 	.ghost2 {
 		display: inline;
