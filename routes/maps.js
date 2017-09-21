@@ -48,11 +48,8 @@ router.post('/save/route', (req, res, next) => {
       console.log(error)
       }
     else {
-      // res.redirect('/');
+      console.log("The result");
       }
-      // var routeId = { routes: route._id };
-      // User.findByIdAndUpdate(req.user._id, routeId);
-    // console.log(routeId);
   })
 });
 
@@ -91,7 +88,7 @@ router.post('/save/place', (req, res, next) => {
   place.save((error) => {
     if (error) { console.log(error) }
     else {
-      res.redirect('/');
+      // res.redirect('/');
     }
   })
 });

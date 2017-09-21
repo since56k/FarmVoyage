@@ -19,11 +19,19 @@
     <div class="col-sm-12">
 
   <div>
- 
+
   </div>
 
-      <p>SAVED ROUTE 1</p>
-      <p>SAVED ROUTE 2</p>
+  <% if (user.places.length > 0) { %>
+    <p>you have a saved route</p>
+    <% for (let i=0; i < user.routes.length; i++) { %>
+          <div>
+          <h2><%= user.routes[i] %></h2>
+          </div>
+    <% } %>
+  <% } else { %>
+    <p>you have no saved routes</p>
+  <% } %>
 
 
 

@@ -17,9 +17,17 @@
   </div>
   <div class="row profile-content">
     <div class="col-sm-12">
-      <p>SAVED FARM 1</p>
-      <p>SAVED FARM 2</p>
 
+    <% if (user.places.length > 0) { %>
+      <p>you have a saved farm</p>
+      <% for (let i=0; i < user.places.length; i++) { %>
+            <div>
+            <h2><%= user.places[i] %></h2>
+            </div>
+      <% } %>
+    <% } else { %>
+      <p>you have no saved farms</p>
+    <% } %>
     </div>
   </div>
 </div>
