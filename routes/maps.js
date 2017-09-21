@@ -48,19 +48,13 @@ router.post('/save/route', (req, res, next) => {
       console.log(error)
       }
     else {
-      res.redirect('/');
+      // res.redirect('/');
       }
       // var routeId = { routes: route._id };
       // User.findByIdAndUpdate(req.user._id, routeId);
     // console.log(routeId);
   })
 });
-
-
-
-
-
-
 
 
 //save place in db
@@ -83,6 +77,16 @@ router.post('/save/place', (req, res, next) => {
   const place = new DataPlace(newPlace);
 
   console.log(place)
+
+  place.addPlaceId(place._id, (err) => {
+    if (err) {
+       return res.json("Error updating");
+     } else {
+       console.log("it works!")
+    }
+  })
+
+
 
   place.save((error) => {
     if (error) { console.log(error) }

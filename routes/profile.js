@@ -35,7 +35,6 @@ router.get('/farm', ensureLoggedIn('/login'), (req, res) => {
 });
 
 
-
 //display and crud for user
 
 router.get('/account', ensureLoggedIn('/login'), (req, res, next) => {
