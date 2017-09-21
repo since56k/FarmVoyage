@@ -48,11 +48,9 @@ router.post('/save/route', (req, res, next) => {
       console.log(error)
       }
     else {
-      // res.redirect('/');
+       res.redirect('/');
       }
-      // var routeId = { routes: route._id };
-      // User.findByIdAndUpdate(req.user._id, routeId);
-    // console.log(routeId);
+    
   })
 });
 
@@ -107,5 +105,6 @@ router.get('/api/locations', function(req, res, next) {
     }
   })
 });
+
 
 module.exports = router;
