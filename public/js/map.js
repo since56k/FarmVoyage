@@ -389,24 +389,27 @@ function createMarker(place) {
             
             console.log('place', place)
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-               
+                
+                
+                  
 
                 var contentStr = '<form action="/maps/save/place" method="post">' + 
                                      '<h3>'+ place.name +'</h3>' +
-                                     '<br /><input type="text" id="placeName" name="placeName" value="' + place.name + '">' +
-                                     '<strong>'+ place.types +'</strong>' +
-                                     '<br /><input type="text" id="placeType" name="placeType" value="' + place.types + '">' +
-                                     '<strong>'+ place.formatted_phone_number +'</strong>' +
-                                     '<br /><input type="text" id="placePhone" name="placePhone" value="' + place.formatted_phone_number + '">' +
-                                     '<strong>'+ place.website +'</strong>' +
-                                     '<br /><input type="text" id="placeWebsite" name="placeWebsite" value="' + place.website + '">' +
-                                     '<strong>'+ place.formatted_address +'</strong>' +
-                                     '<br /><input type="text" id="placeAddress" name="placeAddress" value="' + place.formatted_address + '">' +
-                                     '<strong>Geo Location</strong>' +
-                                     '<br /><input type="text" id="latitude" name="latitude" value="' + marker.position.lat() + '">' +
-                                     '<br /><input type="text" id="longitude" name="longitude" value="' + marker.position.lng() + '">' +
-                                     '<button type="input">Save Place</button>' +
+                                     '<input type="hidden" id="placeName" name="placeName" value="' + place.name + '">' +
+                                     '<br /><strong>'+ place.types +'</strong>' +
+                                     '<input type="hidden" id="placeType" name="placeType" value="' + place.types + '">' +
+                                     '<br /><strong>'+ place.formatted_phone_number +'</strong>' +
+                                     '<input type="hidden" id="placePhone" name="placePhone" value="' + place.formatted_phone_number + '">' +
+                                     '<br /><a target="_blank" href="' + place.website + '">' + place.website + '</a>' +
+                                     '<input type="hidden" id="placeWebsite" name="placeWebsite" value="' + place.website + '">' +
+                                     '<br /><strong>'+ place.formatted_address +'</strong>' +
+                                     '<input type="hidden" id="placeAddress" name="placeAddress" value="' + place.formatted_address + '">' +
+                                     '<br /><strong>Geo Location</strong>' +
+                                     '<input type="hidden" id="latitude" name="latitude" value="' + marker.position.lat() + '">' +
+                                     '<input type="hidden" id="longitude" name="longitude" value="' + marker.position.lng() + '">' +
+                                     '<br /><button type="input">Save Place</button>' +
                                  '<form>';   
+
 
                 infowindow.setContent(contentStr);
                 infowindow.open(map, marker);
