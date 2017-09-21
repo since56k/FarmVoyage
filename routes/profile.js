@@ -13,7 +13,6 @@ router.get('/', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
-
 router.get('/route', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/route', {
         user : req.user
