@@ -19,14 +19,17 @@ router.post('/save/route', (req, res, next) => {
 
   // Create a new route with location
     const newRoute = {
+      userId:      req.user._id,
       route:       req.body.nameRoute,
-      from:        req.body.starting,
+      country:     req.body.country,
       to:          req.body.destination,
+      from:        req.body.starting,
+      distance:    req.body.searchRadius,
       type:        req.body.type,
-      name:        req.body.name,
       keyword:     req.body.keyword,
-      
+      name:        req.body.name
     };
+
 
   const route = new DataApi(newRoute);
 
