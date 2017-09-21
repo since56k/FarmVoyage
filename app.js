@@ -14,7 +14,8 @@ require("dotenv").config();
 
 
 //MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGODB_URI);
+//mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb://localhost:27017/farm-voyage-development');
 
 //DEFINE EXPRESS APP
 const app = express();

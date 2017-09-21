@@ -31,6 +31,47 @@ router.get('/account', ensureLoggedIn('/login'), (req, res) => {
     });
 });
 
+//Crud for User
+//show user
+router.get('/account', ensureLoggedIn(), (req, res, next) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err) {
+      return next(err);
+    } else {
+        res.render('profile/account', {req, user});
+    }
+  });
+});
+
+
+//this for edit from a link 
+router.get('/account/:id', ensureLoggedIn(), (req, res, next) => {
+  const userId = req.params.userId;
+  if (req.user._id == userId) {
+    res.render('profile/account/:id', {req, user: req.user});
+  } else {
+    res.redirect('profile/account');
+  }
+});
+
+//trigger update
+router.post('/account/:id', ensureLoggedIn(), (req, res, next) => {
+  const userId = req.params.id;
+
+  const updates = {
+      username: req.body.name,
+      email: req.body.email
+  };
+  
+  User.findByIdAndUpdate(userId, updates, (err, user) => {
+    if (err)       { return res.render('profile/account', { user, errors: user.errors }); }
+    if (!user) { return next(new Error("404")); }
+    return res.redirect('profile/account');
+  });
+});
+
+
+
 //Check this spaghetti crud
 
 //Crud for Route
@@ -47,25 +88,6 @@ router.get('/account', ensureLoggedIn('/login'), (req, res) => {
 //     return res.redirect('profile/route');
 //   });
 // });
-
-
-//Crud for User
-
-
-router.post('account/:id', (req, res, next) => {
-  const userId = req.params.id;
-
-  const updates = {
-      username: req.body.name,
-      email: req.body.email
-  };
-  
-  User.findByIdAndUpdate(productId, updates, (err, user) => {
-    if (err)       { return res.render('profile/account', { user, errors: user.errors }); }
-    if (!user) { return next(new Error("404")); }
-    return res.redirect('profile/account');
-  });
-});
 
 
 module.exports = router;

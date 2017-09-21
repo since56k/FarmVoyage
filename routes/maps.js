@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const PlaceApi = require('../models/googleMapsInfo');
+const DataApi = require('../models/googleMapsInfo');
 const passport   = require('passport');
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
@@ -9,9 +9,38 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Farm Voyage' }, {user : req.user});
 });
 
+//save route in db
+router.post('/save/route', (req, res, next) => {
+
+  let location = {
+    type: 'Point',
+    coordinates: [req.body.longitude, req.body.latitude]
+  };
+
+  // Create a new route with location
+    const newRoute = {
+      route:       req.body.nameRoute,
+      from:        req.body.starting,
+      to:          req.body.destination,
+      type:        req.body.type,
+      name:        req.body.name,
+      keyword:     req.body.keyword,
+      
+    };
+
+  const route = new DataApi(newRoute);
+
+  route.save((error) => {
+    if (error) { console.log(error) }
+    else {
+      res.redirect('/');
+    }
+  })
+});
+
 //save place in db
-router.post('/', (req, res, next) => {
-  // Get Params from POST
+router.post('/save/place', (req, res, next) => {
+
   let location = {
     type: 'Point',
     coordinates: [req.body.longitude, req.body.latitude]
@@ -19,15 +48,14 @@ router.post('/', (req, res, next) => {
 
   // Create a new Place with location
     const newPlace = {
-      name:        req.body.placeName,
-      description: req.body.description,
-      type:        req.body.type,
+      namePlace:        req.body.namePlace,
+      emailPlace:        req.body.emailPlace,
+      websitePlace:     req.body.websitePlace,
       location:    location,
     };
 
-  const place = new PlaceApi(newPlace);
+  const place = new DataApi(newPlace);
 
-  // Save the restaurant to the Database
   place.save((error) => {
     if (error) { console.log(error) }
     else {
@@ -36,7 +64,8 @@ router.post('/', (req, res, next) => {
   })
 });
 
-//go to this url for get api
+
+//get api
 router.get('/api/locations', function(req, res, next) {
   Place.find({}, (error, places) => {
     if (error) {
