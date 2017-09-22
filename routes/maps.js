@@ -49,7 +49,7 @@ router.post('/save/route', (req, res, next) => {
       console.log(error)
       }
     else {
-       res.redirect('/');
+      //  res.redirect('/');
       }
 
   })
@@ -88,7 +88,7 @@ router.post('/save/place', (req, res, next) => {
   place.save((error) => {
     if (error) { console.log(error) }
     else {
-       res.redirect('/');
+      //  res.redirect('/');
        console.log('works')
     }
   })
