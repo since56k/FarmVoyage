@@ -31,17 +31,25 @@
   <div>
 
   </div>
+      <h3>Saved Routes <%= user.username %></h3>
 
-  <% if (user.places.length > 0) { %>
-    <h3>you have a saved route</h3>
-    <% for (let i=0; i < user.routes.length; i++) { %>
-          <div>
-          <h2><%= user.routes[i] %></h2>
-          </div>
-    <% } %>
-  <% } else { %>
-    <p>you have no saved routes</p>
-  <% } %>
+      <!-- <a class="title" href="/profile/route/<%=  %>"><%= routes %></a> -->
+
+      <% if (routes.length > 0) { %>
+        <% routes.forEach(function(route, i) { %>
+          <div class="">
+
+            <ul>
+              <li><%= i %> - <%= route.route %></li>
+            </ul>
+
+        <% }) %>
+        <% } else { %>
+        <div class="">
+          <p><%= user.username %> hasn't routes yet.</p>
+        </div>
+      <% } %>
+
 
 
 

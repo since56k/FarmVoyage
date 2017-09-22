@@ -32,7 +32,7 @@ router.post('/save/route', (req, res, next) => {
       name:        req.body.name
     };
 
-  
+
 
   const route = new DataApi(newRoute);
 
@@ -49,6 +49,8 @@ router.post('/save/route', (req, res, next) => {
       console.log(error)
       }
     else {
+      //  res.redirect('/');
+      }
       console.log("The result");
       }
   })
@@ -84,8 +86,6 @@ router.post('/save/place', (req, res, next) => {
     }
   })
 
-
-
   place.save((error) => {
     if (error) { console.log(error) }
     else {
@@ -105,5 +105,6 @@ router.get('/api/locations', function(req, res, next) {
     }
   })
 });
+
 
 module.exports = router;
