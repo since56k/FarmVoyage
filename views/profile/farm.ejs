@@ -17,6 +17,14 @@
   </div>
   <div class="row profile-content">
     <div class="col-sm-12">
+      <div class="farm-card">
+        <h3>Place Name</h3>
+        <p class="created">Created: </p>
+        <p>Address: </p>
+        <p>Phone: </p>
+        <p>Website: </p>
+        <button>See on Map</button>
+      </div>
 
     <% if (user.places.length > 0) { %>
       <h3>you have a saved farm</h3>
@@ -28,6 +36,7 @@
     <% } else { %>
       <p>you have no saved farms</p>
     <% } %>
+
     </div>
   </div>
 </div>

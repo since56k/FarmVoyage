@@ -16,6 +16,76 @@ $bold-font: 600;
 	left: -78px;
 }
 
+.farm-card {
+	background-color: #f2f2f2;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+	color: #414141;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding: 5px 0 15px 25px;
+	position: relative;
+	h3 {
+		color: $primary-color;
+		text-transform: uppercase;
+	}
+	h3, p {
+		text-align: left;
+	}
+	button {
+		float: right;
+		position: absolute;
+		bottom: 20px;
+		right: 25px;
+		border-radius: 100px;
+		padding: 5px 15px 3px 15px;
+		background-color: $primary-color;
+		border: none;
+		text-transform: uppercase;
+		color: white;
+	}
+}
+
+.created {
+	float: right;
+	position: absolute;
+	top: 30px;
+	right: 100px;
+
+}
+
+.route-card {
+	background-color: #f2f2f2;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+	color: #414141;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding: 5px 0 15px 25px;
+	position: relative;
+	h3 {
+		color: $primary-color;
+		text-transform: uppercase;
+	}
+	h3, p {
+		text-align: left;
+	}
+	button {
+		float: right;
+		position: absolute;
+		bottom: 20px;
+		right: 25px;
+		border-radius: 100px;
+		padding: 5px 15px 3px 15px;
+		background-color: $primary-color;
+		border: none;
+		text-transform: uppercase;
+		color: white;
+	}
+}
+
 .ghost {
 	margin-top: 15px;
 	margin-right: 8px;
@@ -398,6 +468,8 @@ $bold-font: 600;
 		a {
 			text-decoration: none;
 			color: $main-text-color;
+			max-width: 300px;
+			margin: 0 auto;
 			&:hover {
 				color: black;
 			}
@@ -413,9 +485,13 @@ $bold-font: 600;
 			}
 		.active {
 			background-color: $primary-color;
+			max-width: 300px;
+			margin: 0 auto;
+			margin-top: 8vh;
+			background-size: 80%;
 			font-weight: $bold-font;
 			color: white;
-			padding: 5px 10px;
+			padding: 5px 10px 3px 10px;
 			border-radius: 100px;
 		}
 	}
