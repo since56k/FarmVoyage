@@ -3,8 +3,8 @@ const router     = express.Router();
 const passport   = require('passport');
 const PlaceSaved = require('../models/savedFarmInfo.js');
 const RouteSaved = require('../models/googleMapsInfo.js');
-const User = require('../models/user.js');
-const ObjectId                = require('mongoose').Types.ObjectId;
+const User       = require('../models/user.js');
+const ObjectId   = require('mongoose').Types.ObjectId;
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 

@@ -16,6 +16,143 @@ $bold-font: 600;
 	left: -78px;
 }
 
+p.website {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 400px;
+}
+
+p.phone {
+	margin-bottom: 20px;
+}
+
+.profile-card {
+	background-color: #f2f2f2;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+	color: #414141;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding: 5px 0 15px 20px;
+	position: relative;
+	img {
+		max-width: 100px;
+		border-radius: 100px;
+		margin: 1vh 0;
+	}
+	p {
+		@include responsive-font-size (1.4em, 1.5em, 640px, 1200px, 0.5em);
+	}
+	h3 {
+		color: $primary-color;
+		font-weight: $bold-font;
+		margin-bottom: 5px;
+	}
+}
+
+
+.farm-card {
+	background-color: #f2f2f2;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+	color: #414141;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding: 5px 0 15px 20px;
+	position: relative;
+	div {
+		margin-bottom: 20px;
+	}
+	span {
+		text-transform: uppercase;
+		font-weight: $bold-font;
+		color: $primary-color;
+	}
+	h3 {
+		color: $primary-color;
+		text-transform: uppercase;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 450px;
+	}
+	h3, p {
+		text-align: left;
+	}
+	p {
+		text-indent: 10px;
+	}
+	button {
+		float: right;
+		position: absolute;
+		bottom: 20px;
+		right: 25px;
+		border-radius: 100px;
+		padding: 5px 15px 3px 15px;
+		background-color: $primary-color;
+		border: none;
+		text-transform: uppercase;
+		color: white;
+	}
+}
+
+.created {
+	float: right;
+	position: absolute;
+	top: 30px;
+	right: 100px;
+
+}
+
+.route-card {
+	background-color: #f2f2f2;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+	color: #414141;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding: 5px 0 15px 20px;
+	position: relative;
+	div {
+		margin-bottom: 20px;
+	}
+	span {
+		text-transform: uppercase;
+		font-weight: $bold-font;
+		color: $primary-color;
+	}
+	h3 {
+		color: $primary-color;
+	}
+	h3, p {
+		text-align: left;
+		text-transform: uppercase;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 450px;
+	}
+	p {
+		text-indent: 10px;
+	}
+	button {
+		float: right;
+		position: absolute;
+		bottom: 20px;
+		right: 25px;
+		border-radius: 100px;
+		padding: 5px 15px 3px 15px;
+		background-color: $primary-color;
+		border: none;
+		text-transform: uppercase;
+		color: white;
+	}
+}
+
 .ghost {
 	margin-top: 15px;
 	margin-right: 8px;
@@ -338,7 +475,7 @@ $bold-font: 600;
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
-		margin-top: 20vh;
+		margin-top: 18vh;
 		margin-bottom: 2vh;
 		display: block;
 	}
@@ -351,7 +488,7 @@ $bold-font: 600;
 		display: block;
 	}
 	#get_route {
-
+		margin-top: 2vh;
 	}
 	button {
 		background-color: $primary-color;
@@ -380,12 +517,37 @@ $bold-font: 600;
 }
 }
 
+.profile-content-form {
+	input {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 15px;
+		border-radius: 100px;
+		border: .5px solid $main-text-color;
+		padding: 10px;
+	}
+	button {
+		background-color: $primary-color;
+		text-transform: uppercase;
+		color: white;
+		border-radius: 100px;
+		border: none;
+		margin-top: 10px;
+		padding: 5px 15px 3px 15px;
+		margin-bottom: 5vh;
+	}
+}
+
 .profile {
 	margin: 0 auto;
 	margin-top: 7vh;
 	color: $main-text-color;
 	.profile-content {
-		margin-top: 5vh;
+		margin-top: 3vh;
+		margin-bottom: 0vh;
+		div {
+			margin-bottom: 3vh;
+		}
 	}
 	.profile-headers {
 		h2 {
@@ -398,6 +560,8 @@ $bold-font: 600;
 		a {
 			text-decoration: none;
 			color: $main-text-color;
+			max-width: 300px;
+			margin: 0 auto;
 			&:hover {
 				color: black;
 			}
@@ -407,15 +571,19 @@ $bold-font: 600;
 			text-transform: uppercase;
 		}
 		h2 {
-			margin-top: 8vh;
+			margin-top: 5vh;
 			text-transform: uppercase;
 			padding: 5px 10px;
 			}
 		.active {
 			background-color: $primary-color;
+			max-width: 300px;
+			margin: 0 auto;
+			margin-top: 5vh;
+			background-size: 80%;
 			font-weight: $bold-font;
 			color: white;
-			padding: 5px 10px;
+			padding: 5px 10px 3px 10px;
 			border-radius: 100px;
 		}
 	}
