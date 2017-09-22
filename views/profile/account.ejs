@@ -17,14 +17,19 @@
   </div>
   <div class="row profile-content">
     <div class="col-sm-12">
-      <span>CHANGE USERNAME: </span>  <span><strong><%= user.username %></strong></span>
-      <br>
-      <span>CHANGE EMAIL</span> <span><strong><%= user.email %></strong></span>
-      <p>CHANGE PASSWORD</p> <span></span>
+      <div class="profile-card">
+        <img src="/images/profile.png" alt="">
+        <h3>USERNAME</h3>
+        <p><%= user.username %></p>
+        <h3>EMAIL</h3>
+        <p><%= user.email %></p>
+      </div>
     </div>
+
   </div>
-  <div class="row profile-content">
+  <div class="row profile-content-form">
     <div class="col-sm-12">
+    <h3>CHANGE ACCOUT INFO</h3>
     <form action="/account/<%= user._id %>" method="POST">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" value="<%= user.username %>">

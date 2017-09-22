@@ -27,6 +27,32 @@ p.phone {
 	margin-bottom: 20px;
 }
 
+.profile-card {
+	background-color: #f2f2f2;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+	color: #414141;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	padding: 5px 0 15px 20px;
+	position: relative;
+	img {
+		max-width: 100px;
+		border-radius: 100px;
+		margin: 1vh 0;
+	}
+	p {
+		@include responsive-font-size (1.4em, 1.5em, 640px, 1200px, 0.5em);
+	}
+	h3 {
+		color: $primary-color;
+		font-weight: $bold-font;
+		margin-bottom: 5px;
+	}
+}
+
+
 .farm-card {
 	background-color: #f2f2f2;
 	border: 1px solid #ededed;
@@ -101,14 +127,14 @@ p.phone {
 	}
 	h3 {
 		color: $primary-color;
+	}
+	h3, p {
+		text-align: left;
 		text-transform: uppercase;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		max-width: 450px;
-	}
-	h3, p {
-		text-align: left;
 	}
 	p {
 		text-indent: 10px;
@@ -491,13 +517,34 @@ p.phone {
 }
 }
 
+.profile-content-form {
+	input {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 15px;
+		border-radius: 100px;
+		border: .5px solid $main-text-color;
+		padding: 10px;
+	}
+	button {
+		background-color: $primary-color;
+		text-transform: uppercase;
+		color: white;
+		border-radius: 100px;
+		border: none;
+		margin-top: 10px;
+		padding: 5px 15px 3px 15px;
+		margin-bottom: 5vh;
+	}
+}
+
 .profile {
 	margin: 0 auto;
 	margin-top: 7vh;
 	color: $main-text-color;
 	.profile-content {
-		margin-top: 5vh;
-		margin-bottom: 5vh;
+		margin-top: 3vh;
+		margin-bottom: 0vh;
 		div {
 			margin-bottom: 3vh;
 		}
