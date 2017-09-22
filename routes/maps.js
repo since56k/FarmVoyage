@@ -52,7 +52,6 @@ router.post('/save/route', (req, res, next) => {
       //  res.redirect('/');
       }
       console.log("The result");
-      }
   })
 });
 
