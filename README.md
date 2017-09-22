@@ -1,5 +1,6 @@
 # Farm Voyage
-Find local farms, vineyards, ecolodges before you plan your next roadtrip
+An app that improves your next roadtrip by finding local farms, vineyards, ecolodges along the way.
+Currently only works in Italy.
 
 ## Team
 * Gabriele Dolfi
@@ -13,11 +14,14 @@ Find local farms, vineyards, ecolodges before you plan your next roadtrip
 
 
 ## Demo
-* Play the game live [here](https://)
+* Try out the app [here](https://farm-voyage.herokuapp.com/)
 
 
 ## Development
 * We used Adobe Xd to create the wireframe and prototype our user flow.
+* We used Passport to handle the local login/signup and the Google/Facebook signup.
+* App built using Express running on Node with MongoDB. 
+* Used Google Maps and Places API to retreive the business data
 
 
 ## Built with
@@ -25,16 +29,16 @@ Find local farms, vineyards, ecolodges before you plan your next roadtrip
 * Node
 * MongoDB (Mongoose)
 * Passport
-* HTML & [Sass](http://sass-lang.com/)
-* 365 lines of JavaScript
-* 72 lines of [jQuery](https://jquery.com/)
+* EJS
+* [Sass](http://sass-lang.com/)
+* [jQuery](https://jquery.com/)
 * Prototyping done with [Adobe Xd](https://www.adobe.com/products/experience-design.html)
-* Styling done with [Materialize](https://materializecss.com/)
+* Bootstrap
+* Google Maps & Places API
 * & lots of Google Searches
 
 ## Bugs
-* Info
-
+* Display glitches with RWD
 
 ## To-do
-* Info
+* Optimize for mobile
