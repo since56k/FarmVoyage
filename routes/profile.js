@@ -38,17 +38,10 @@ router.get('/route', ensureLoggedIn('/login'), (req, res, next) => {
 });
 
 
-<<<<<<< HEAD
+
 router.get('/route/:id', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/route', {
         user : req.user
-=======
-//display and crud for farm
-
-router.get('/farm', ensureLoggedIn('/login'), (req, res) => {
-    res.render('profile/farm', {
-        user : req.user,
->>>>>>> e6ef460ef1e0400237e223df3705346548d7c322
     });
 });
 
