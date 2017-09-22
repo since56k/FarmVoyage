@@ -389,7 +389,7 @@ function createMarker(place) {
 
             console.log('place', place)
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                var contentStr = '<form action="/maps/save/place" method="post">' + 
+                var contentStr = '<form id="saveplace" action="/maps/save/place" method="post">' + 
                                      '<h3>'+ place.name +'</h3>' +
                                      '<input type="hidden" id="placeName" name="placeName" value="' + place.name + '">' +
                                      '<br /><strong>'+ place.types +'</strong>' +

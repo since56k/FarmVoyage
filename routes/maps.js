@@ -48,14 +48,9 @@ router.post('/save/route', (req, res, next) => {
       console.log(error)
       }
     else {
-<<<<<<< HEAD
        res.redirect('/');
       }
-    
-=======
-      console.log("The result");
-      }
->>>>>>> e6ef460ef1e0400237e223df3705346548d7c322
+  
   })
 });
 
@@ -92,22 +87,14 @@ router.post('/save/place', (req, res, next) => {
   place.save((error) => {
     if (error) { console.log(error) }
     else {
-      // res.redirect('/');
+       res.redirect('/');
+       console.log('works')
     }
   })
 });
 
 
-//get api
-router.get('/api/locations', function(req, res, next) {
-  Place.find({}, (error, places) => {
-    if (error) {
-      next(error);
-    } else {
-      res.json(places);
-    }
-  })
-});
+
 
 
 module.exports = router;

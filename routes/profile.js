@@ -2,14 +2,9 @@ const express    = require('express');
 const router     = express.Router();
 const passport   = require('passport');
 const PlaceSaved = require('../models/savedFarmInfo.js');
-<<<<<<< HEAD
 const RouteSaved = require('../models/googleMapsInfo.js');
 const User = require('../models/user.js');
 const ObjectId                = require('mongoose').Types.ObjectId;
-=======
-const User       = require('../models/user.js');
-const ObjectId   = require('mongoose').Types.ObjectId;
->>>>>>> e6ef460ef1e0400237e223df3705346548d7c322
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 
@@ -24,7 +19,7 @@ router.get('/', ensureLoggedIn('/login'), (req, res) => {
 });
 
 
-
+//route
 router.get('/route', ensureLoggedIn('/login'), (req, res, next) => {
   const userId = req.user._id;
   console.log(userId);
@@ -38,7 +33,7 @@ router.get('/route', ensureLoggedIn('/login'), (req, res, next) => {
 });
 
 
-
+//route/id
 router.get('/route/:id', ensureLoggedIn('/login'), (req, res) => {
     res.render('profile/route', {
         user : req.user
@@ -46,7 +41,31 @@ router.get('/route/:id', ensureLoggedIn('/login'), (req, res) => {
 });
 
 
+//get json data
+router.get('/route/json', (req, res, next) => {
+    RouteSaved.find({}, (error, routes) => {
+    if (error) { next(error); 
+    } else {
+        console.log(JSON.stringify(routes));
+          next();
+        //res.json(routes, {user: req.user});
 
+    }
+  })
+});
+
+//get api
+router.get('/place/json', function(req, res, next) {
+  DataPlace.find({}, (error, places) => {
+    if (error) {next(error);
+    } else {
+      res.json(places);
+    }
+  })
+});
+
+
+//place
 router.get('/farm', ensureLoggedIn('/login'), (req, res, next) => {
     const userId = req.user._id;
     console.log(userId);
@@ -59,7 +78,9 @@ router.get('/farm', ensureLoggedIn('/login'), (req, res, next) => {
     });
 });
 
+
 router.get('/account', ensureLoggedIn('/login'), (req, res) => {
+  console.log(req.user);
     res.render('profile/account', {
         user : req.user
     });
@@ -76,6 +97,8 @@ router.get('/account', ensureLoggedIn('/login'), (req, res) => {
 //       res.render('profile/route', { routes });
 //     });
 // });
+
+
 
 
 

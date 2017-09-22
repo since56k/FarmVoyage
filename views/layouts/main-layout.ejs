@@ -42,7 +42,7 @@
 								<button data-toggle="collapse" data-target="#search-menu" id="search-collapse" class="ghost"><i class="fa fa-search fa-lg" aria-hidden="true"></i>
 								</button>
 								<% if (userSignedIn) { %>
-									<li><a href="/profile/account" class="username"><%=  %> </a></li>
+									<li><a href="/profile/account" class="username"><%= user.username %> </a></li>
 								<%} else { %>
 									<li><a href="/signup">sign up</a></li>
 								<% } %>
@@ -59,12 +59,13 @@
 
       <%- body -%>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZkyu7Mdm5CZ_iVid1nfxqcUpAVLM7j_M&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBro3ObqYkoGTQ2lUwbs9ybC_uHUgqa-GM&libraries=places"></script>
 <script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/routeboxer/src/RouteBoxer.js" type="text/javascript"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/map.js"></script>
 <script src="js/filter.js"></script>
+
 </body>
 </html>
