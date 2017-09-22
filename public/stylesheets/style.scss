@@ -16,6 +16,17 @@ $bold-font: 600;
 	left: -78px;
 }
 
+p.website {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 400px;
+}
+
+p.phone {
+	margin-bottom: 20px;
+}
+
 .farm-card {
 	background-color: #f2f2f2;
 	border: 1px solid #ededed;
@@ -24,14 +35,29 @@ $bold-font: 600;
 	max-width: 500px;
 	margin: 0 auto;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	padding: 5px 0 15px 25px;
+	padding: 5px 0 15px 20px;
 	position: relative;
+	div {
+		margin-bottom: 20px;
+	}
+	span {
+		text-transform: uppercase;
+		font-weight: $bold-font;
+		color: $primary-color;
+	}
 	h3 {
 		color: $primary-color;
 		text-transform: uppercase;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 450px;
 	}
 	h3, p {
 		text-align: left;
+	}
+	p {
+		text-indent: 10px;
 	}
 	button {
 		float: right;
@@ -63,14 +89,29 @@ $bold-font: 600;
 	max-width: 500px;
 	margin: 0 auto;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	padding: 5px 0 15px 25px;
+	padding: 5px 0 15px 20px;
 	position: relative;
+	div {
+		margin-bottom: 20px;
+	}
+	span {
+		text-transform: uppercase;
+		font-weight: $bold-font;
+		color: $primary-color;
+	}
 	h3 {
 		color: $primary-color;
 		text-transform: uppercase;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 450px;
 	}
 	h3, p {
 		text-align: left;
+	}
+	p {
+		text-indent: 10px;
 	}
 	button {
 		float: right;
@@ -408,7 +449,7 @@ $bold-font: 600;
 		border: none;
 		border-bottom: .5px solid $main-text-color;
 		margin: 0 auto;
-		margin-top: 20vh;
+		margin-top: 18vh;
 		margin-bottom: 2vh;
 		display: block;
 	}
@@ -421,7 +462,7 @@ $bold-font: 600;
 		display: block;
 	}
 	#get_route {
-
+		margin-top: 2vh;
 	}
 	button {
 		background-color: $primary-color;
@@ -456,6 +497,10 @@ $bold-font: 600;
 	color: $main-text-color;
 	.profile-content {
 		margin-top: 5vh;
+		margin-bottom: 5vh;
+		div {
+			margin-bottom: 3vh;
+		}
 	}
 	.profile-headers {
 		h2 {
@@ -479,7 +524,7 @@ $bold-font: 600;
 			text-transform: uppercase;
 		}
 		h2 {
-			margin-top: 8vh;
+			margin-top: 5vh;
 			text-transform: uppercase;
 			padding: 5px 10px;
 			}
@@ -487,7 +532,7 @@ $bold-font: 600;
 			background-color: $primary-color;
 			max-width: 300px;
 			margin: 0 auto;
-			margin-top: 8vh;
+			margin-top: 5vh;
 			background-size: 80%;
 			font-weight: $bold-font;
 			color: white;

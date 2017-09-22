@@ -18,32 +18,22 @@
   <div class="row profile-content">
     <div class="col-sm-12">
 
-      <div class="farm-card">
-        <h3>Place Name</h3>
-        <p class="created">Created: </p>
-        <p>Address: </p>
-        <p>Phone: </p>
-        <p>Website: </p>
-        <button>See on Map</button>
-      </div>
-
-       <h3>Saved Places <%= user.username %></h3>
-
       <% if (places.length > 0) { %>
         <% places.forEach(function(place, i) { %>
-          <div class="">
-
-            <ul>
-              <li><%= i %> - <%= place.namePlace %></li>
-            </ul>
-
+          <div class="farm-card">
+            <h3><%= place.namePlace %></h3>
+            <p class="created hidden">Created: <%= place.timestamps%> </p>
+            <p><span>Address: </span><%= place.location.coordinates %></p>
+            <p class="website"><span>Website: </span><a href="<%= place.websitePlace %>"><%= place.websitePlace %></a></p>
+            <p class="phone"><span>Phone: </span><%= place.phonePlace %></p>
+            <button>See on Map</button>
+          </div>
         <% }) %>
         <% } else { %>
         <div class="">
-          <p><%= user.username %> hasn't places yet.</p>
+          <p><%= user.username %> doesn't have any farms yet.</p>
         </div>
       <% } %>
-
     </div>
   </div>
 </div>
