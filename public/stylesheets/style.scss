@@ -104,7 +104,6 @@ p.phone {
 	position: absolute;
 	top: 30px;
 	right: 100px;
-
 }
 
 .route-card {
@@ -205,7 +204,7 @@ p.phone {
 .navbar {
  -webkit-box-shadow: 0 8px 6px -6px #999;
  -moz-box-shadow: 0 8px 6px -6px #999;
-  box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	padding: 7px 2vw 5px 3vw;
 	background-color: white;
 	.navbar-brand {
@@ -213,6 +212,7 @@ p.phone {
 		position: relative;
 	}
 	.navbar-toggle {
+		margin-right: -3px;
 		span {
 			background-color: $primary-color;
 		}
@@ -227,17 +227,18 @@ p.phone {
 	text-align: center;
 	margin: 0 auto;
 	h1 {
-		@include responsive-font-size (3em, 8em, 640px, 1200px, 0.5em);
+		@include responsive-font-size (2.5em, 8em, 640px, 1200px, 0.5em);
 		// margin-top: 30vh;
 		color: $primary-color;
 		text-transform: uppercase;
 	}
 	h2 {
-		@include responsive-font-size (.5em, 2em, 640px, 1200px, 0.5em);
+		@include responsive-font-size (1em, 2em, 640px, 1200px, 0.5em);
 		color: $main-text-color;
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 0 20px;
+		margin-top: 20px;
+		padding: 0 50px;
 		}
 	.logins {
 		span {
@@ -259,10 +260,9 @@ p.phone {
 		}
 		button {
 			background-color: $primary-color;
-			@include responsive-font-size (1em, 1.5em, 640px, 1200px, 0.5em);
+			@include responsive-font-size (1em, 1.5em, 440px, 1000px, 0.5em);
 			color: white;
 			border: none;
-			padding: 10px 40px 2px 40px;
 			text-transform: uppercase;
 			font-weight: $bold-font;
 			border-radius: 100px;
@@ -273,11 +273,28 @@ p.phone {
 			}
 	}
 	.logo {
-		max-height: 25vh;
+		max-height: 20vh;
 		margin-top: 15vh;
 		margin-bottom: 3vh;
 	}
 }
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+	.home {
+		button {
+			padding: 8px 40px 5px 40px;
+		}
+	}
+}
+
+@media screen and (min-width: 801px) and (max-width: 5000px) {
+	.home {
+		button {
+			padding: 12px 40px 5px 40px;
+		}
+	}
+}
+
 
 .signup {
 	text-align: center;
@@ -374,9 +391,9 @@ p.phone {
 		margin-top: 3vh;
 	}
 	a {
-	}
-	& :hover {
-		text-decoration: none;
+		& :hover {
+			text-decoration: none;
+		}
 	}
 	h1 {
 		@include responsive-font-size (3em, 6em, 640px, 1200px, 0.5em);
@@ -399,9 +416,10 @@ p.phone {
 		margin: 0 auto;
 		margin-top: 20px;
 		background-color: $primary-color;
-		@include responsive-font-size (.5em, 1.2em, 375px, 1200px, 0.5em);
+		@include responsive-font-size (.55em, 1.2em, 375px, 1200px, 0.5em);
 		display: block;
 		color: white;
+		min-width: 250px;
 		border: none;
 		padding: 15px 40px 10px 40px;
 		border-radius: 100px;
@@ -496,7 +514,7 @@ p.phone {
 		color: white;
 		border: none;
 		border-radius: none;
-		padding: 5px 20px 2px 20px;
+		padding: 5px 20px 5px 20px;
 		text-transform: uppercase;
 		font-weight: $bold-font;
 		border-radius: 100px;
